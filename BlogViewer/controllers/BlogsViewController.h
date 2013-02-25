@@ -8,9 +8,26 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BlogsViewController : UITableViewController
+@interface BlogsViewController : UITableViewController <NSXMLParserDelegate>
 {
-    NSArray *_blogarray;
+    UIActivityIndicatorView *_indicator;
+    UIRefreshControl *_refreshControl;
+    
+    NSArray *_rssarray;
+    NSMutableArray *_blogarray;
+    NSXMLParser *_xmlparser;
+    NSMutableDictionary *_blogdict;
+    
+    NSString *_currentelement;
+    NSMutableString *_currentblog;
+    NSMutableString *_currentimage;
+    NSMutableString *_currentdate;
+    
+    int _rssno;
+    BOOL _initem;
+    BOOL _inimage;
 }
+- (IBAction)pressRefreshButton:(id)sender;
+
 
 @end

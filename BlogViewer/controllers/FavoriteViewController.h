@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface FavoriteViewController : UITableViewController
+{
+    NSArray *_favoritearray;
+}
 
 @end

@@ -27,12 +27,16 @@
     [super viewDidLoad];
     NSLog(@"OtherViewController");
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+    
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
 }
+
+
+
 
 #pragma mark - Table view data source
 
@@ -98,6 +102,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     // Navigation logic may go here. Create and push another view controller.
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];

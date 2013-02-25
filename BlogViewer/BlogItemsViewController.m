@@ -1,27 +1,29 @@
 //
-//  ItemsViewController.m
+//  BlogItemsViewController.m
 //  BlogViewer
 //
-//  Created by yusuke_yasuo on 2013/02/15.
+//  Created by yusuke_yasuo on 2013/02/25.
 //  Copyright (c) 2013年 yusuke_yasuo. All rights reserved.
 //
 
-#import "ItemsViewController.h"
-#import "WebViewController.h"
+#import "BlogItemsViewController.h"
+#import "BlogInfo.h"
 #import "ItemCell.h"
 #import "AFNetworking.h"
-#import "BlogInfo.h"
+#import "WebViewController.h"
 
-@interface ItemsViewController ()
+@interface BlogItemsViewController ()
 
 @end
 
-@implementation ItemsViewController
+@implementation BlogItemsViewController
+@synthesize blogno = _blogno;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
+        // Custom initialization
     }
     return self;
 }
@@ -29,7 +31,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"ItemViewController");
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     _indicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
     [_indicator setCenter:CGPointMake(160.0f, 240.0f)];
@@ -39,9 +40,8 @@
     _indicator.hidden = YES;
     
     _rssarray = [[BlogInfo sharedManager] getRssArray];
-    if ([[BlogInfo sharedManager] getItemarray] == nil) {
-        [self refresh];
-    }
+    [self refresh];
+    
     _refreshControl = [[UIRefreshControl alloc] init];
     [_refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:_refreshControl];
@@ -50,6 +50,17 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void)refresh
+{
+    _itemarray = [[NSMutableArray alloc] init];
+    [self.tableView reloadData];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    _indicator.hidden = NO;
+    [_indicator startAnimating];
+    [self getRss:[_blogno intValue]];
 }
 
 - (void)getRss:(int)rssnumber
@@ -64,24 +75,10 @@
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         _xmlparser = [[NSXMLParser alloc] initWithData:responseObject];
         [_xmlparser setDelegate:self];
-        _initem = NO;
-        _currentblog = [[NSMutableString alloc] init];
         [_xmlparser parse];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
     }];
     [operation start];
-    
-}
-
-- (void)refresh
-{
-    _itemarray = [[NSMutableArray alloc] init];
-    [self.tableView reloadData];
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    _rssno = 0;
-    _indicator.hidden = NO;
-    [_indicator startAnimating];
-    [self getRss:_rssno];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -101,7 +98,6 @@
     _currentelement = [elementName copy];
     
     if ([elementName isEqualToString:@"item"]) {
-        _initem = YES;
         _itemdict = [[NSMutableDictionary alloc] init];
 		_currenttitle = [[NSMutableString alloc] init];
 		_currentdate = [[NSMutableString alloc] init];
@@ -113,11 +109,7 @@
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
 {
     if ([_currentelement isEqualToString:@"title"]) {
-        if (!_initem) {
-            [_currentblog appendString:string];
-        } else {
-            [_currenttitle appendString:string];
-        }
+        [_currenttitle appendString:string];
     } else if ([_currentelement isEqualToString:@"link"]) {
         [_currentlink appendString:string];
     } else if ([_currentelement isEqualToString:@"description"]) {
@@ -132,7 +124,7 @@
  qualifiedName:(NSString *)qName
 {
     if ([elementName isEqualToString:@"item"]) {
-        [_itemdict setObject:_currentblog forKey:@"blog"];
+        [_itemdict setObject:self.title forKey:@"blog"];
         [_itemdict setObject:_currenttitle forKey:@"title"];
 		[_itemdict setObject:_currentlink forKey:@"link"];
         NSRegularExpression *regexp = [[NSRegularExpression alloc] initWithPattern:@"(<img.*?src=\")(.*?)(\".*?>)"
@@ -166,17 +158,11 @@
 
 - (void)parserDidEndDocument:(NSXMLParser *)parser
 {
-    if (++_rssno == _rssarray.count) {
-        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:FALSE];
-        [_itemarray sortUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-        [_indicator stopAnimating];
-        _indicator.hidden = YES;
-        [[BlogInfo sharedManager] setItemarray:_itemarray];
-        [_refreshControl endRefreshing];
-        [self.tableView reloadData];
-    }
-    [self getRss:_rssno];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    [_indicator stopAnimating];
+    _indicator.hidden = YES;
+    [_refreshControl endRefreshing];
+    [self.tableView reloadData];
 }
 
 
@@ -184,22 +170,20 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    // Return the number of rows in the section.
     return _itemarray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ItemCell *cell = (ItemCell *)[tableView dequeueReusableCellWithIdentifier:@"ItemCell"];
-    
-    if (!cell) {
-        cell = [[ItemCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ItemCell"];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    }
+    static NSString *CellIdentifier = @"Cell";
+    ItemCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     NSDictionary *dict = [_itemarray objectAtIndex:indexPath.row];
     
@@ -219,17 +203,63 @@
     [cell.thumbnail setImageWithURLRequest:request
                           placeholderImage:nil
                                    success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *_image) {
-                                       [[BlogInfo sharedManager] setImageCache:_image imageurl:[dict objectForKey:@"imageurl"]];
                                        [bCell.thumbnail setImage:_image];
                                    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
                                    }];
-
-
-
+    
     return cell;
 }
 
-- (IBAction)pressRefreshButton:(id)sender {
-    [self refresh];
+/*
+// Override to support conditional editing of the table view.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return NO if you do not want the specified item to be editable.
+    return YES;
 }
+*/
+
+/*
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Delete the row from the data source
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }   
+    else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    }   
+}
+*/
+
+/*
+// Override to support rearranging the table view.
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+{
+}
+*/
+
+/*
+// Override to support conditional rearranging of the table view.
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return NO if you do not want the item to be re-orderable.
+    return YES;
+}
+*/
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Navigation logic may go here. Create and push another view controller.
+    /*
+     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+     // ...
+     // Pass the selected object to the new view controller.
+     [self.navigationController pushViewController:detailViewController animated:YES];
+     */
+}
+
 @end
