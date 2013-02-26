@@ -34,8 +34,8 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    NSLog(@"load");
-    [[BlogInfo sharedManager] load];
+    //NSLog(@"load");
+    //[[BlogInfo sharedManager] load];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

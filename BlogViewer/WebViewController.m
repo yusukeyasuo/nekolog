@@ -70,7 +70,6 @@
         SLComposeViewController *slComposeViewController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
         [slComposeViewController setInitialText:sharestr];
         [slComposeViewController addURL:[NSURL URLWithString:_blogurl]];
-        [slComposeViewController addImage:[[BlogInfo sharedManager] getImageCache:[_itemdict objectForKey:@"imageurl"]]];
         [self presentViewController:slComposeViewController animated:YES completion:nil];
     } else if (buttonIndex == 1) {
         SLComposeViewController *slComposeViewController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];

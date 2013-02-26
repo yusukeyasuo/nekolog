@@ -10,12 +10,12 @@
 
 @interface ItemsViewController : UITableViewController <NSXMLParserDelegate>
 {
-    IBOutlet UISegmentedControl *_popular_new;
     UIRefreshControl *_refreshControl;
     UIActivityIndicatorView *_indicator;
     
     NSArray *_rssarray;
     NSMutableArray *_itemarray;
+    NSMutableArray *_populararray;
     NSXMLParser *_xmlparser;
     NSString *_currentelement;
     NSMutableDictionary *_itemdict;

@@ -66,6 +66,11 @@
     return _favoritearray.count;
 }
 
+- (float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 80.0f;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ItemCell *cell = (ItemCell *)[tableView dequeueReusableCellWithIdentifier:@"ItemCell"];
@@ -88,17 +93,20 @@
     cell.blogtitle.text = [dict objectForKey:@"blog"];
     cell.updated.text = datestr;
     
-    __block ItemCell *bCell = cell;
+    NSString *imageurl = [dict objectForKey:@"imageurl"];
+    if (imageurl.length < 5) {
+        [cell.thumbnail setImage:[UIImage imageNamed:@"noimage.gif"]];
+    } else {
+        __block ItemCell *bCell = cell;
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[dict objectForKey:@"imageurl"]] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10.0f];
-    [cell.thumbnail setImageWithURLRequest:request
+        [cell.thumbnail setImageWithURLRequest:request
                           placeholderImage:nil
                                    success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *_image) {
                                        [[BlogInfo sharedManager] setImageCache:_image imageurl:[dict objectForKey:@"imageurl"]];
                                        [bCell.thumbnail setImage:_image];
                                    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
                                    }];
-
-    
+    }
     
     return cell;
 }

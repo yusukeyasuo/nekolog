@@ -37,10 +37,6 @@
 		709FB36016D20D6D0010DCF5 /* blog_list@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 709FB35616D20D6D0010DCF5 /* blog_list@2x.png */; };
 		709FB36116D20D6D0010DCF5 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 709FB35716D20D6D0010DCF5 /* home.png */; };
 		709FB36216D20D6D0010DCF5 /* home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 709FB35816D20D6D0010DCF5 /* home@2x.png */; };
-		709FB36316D20D6D0010DCF5 /* kuru0214.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 709FB35916D20D6D0010DCF5 /* kuru0214.jpg */; };
-		709FB36416D20D6D0010DCF5 /* mamejiro040411.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 709FB35A16D20D6D0010DCF5 /* mamejiro040411.jpg */; };
-		709FB36516D20D6D0010DCF5 /* nakachan777_2005.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 709FB35B16D20D6D0010DCF5 /* nakachan777_2005.jpg */; };
-		709FB36616D20D6D0010DCF5 /* office-sakura.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 709FB35C16D20D6D0010DCF5 /* office-sakura.jpg */; };
 		709FB36716D20D6D0010DCF5 /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = 709FB35D16D20D6D0010DCF5 /* setting.png */; };
 		709FB36816D20D6D0010DCF5 /* setting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 709FB35E16D20D6D0010DCF5 /* setting@2x.png */; };
 		709FB39A16D213090010DCF5 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 709FB38816D213080010DCF5 /* AFHTTPClient.m */; };
@@ -105,10 +101,6 @@
 		709FB35616D20D6D0010DCF5 /* blog_list@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blog_list@2x.png"; path = "images/blog_list@2x.png"; sourceTree = "<group>"; };
 		709FB35716D20D6D0010DCF5 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = home.png; path = images/home.png; sourceTree = "<group>"; };
 		709FB35816D20D6D0010DCF5 /* home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "home@2x.png"; path = "images/home@2x.png"; sourceTree = "<group>"; };
-		709FB35916D20D6D0010DCF5 /* kuru0214.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = kuru0214.jpg; path = images/kuru0214.jpg; sourceTree = "<group>"; };
-		709FB35A16D20D6D0010DCF5 /* mamejiro040411.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = mamejiro040411.jpg; path = images/mamejiro040411.jpg; sourceTree = "<group>"; };
-		709FB35B16D20D6D0010DCF5 /* nakachan777_2005.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = nakachan777_2005.jpg; path = images/nakachan777_2005.jpg; sourceTree = "<group>"; };
-		709FB35C16D20D6D0010DCF5 /* office-sakura.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "office-sakura.jpg"; path = "images/office-sakura.jpg"; sourceTree = "<group>"; };
 		709FB35D16D20D6D0010DCF5 /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = setting.png; path = images/setting.png; sourceTree = "<group>"; };
 		709FB35E16D20D6D0010DCF5 /* setting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "setting@2x.png"; path = "images/setting@2x.png"; sourceTree = "<group>"; };
 		709FB38716D213080010DCF5 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
@@ -261,10 +253,6 @@
 				709FB35516D20D6D0010DCF5 /* blog_list.png */,
 				709FB35616D20D6D0010DCF5 /* blog_list@2x.png */,
 				709FB35816D20D6D0010DCF5 /* home@2x.png */,
-				709FB35916D20D6D0010DCF5 /* kuru0214.jpg */,
-				709FB35A16D20D6D0010DCF5 /* mamejiro040411.jpg */,
-				709FB35B16D20D6D0010DCF5 /* nakachan777_2005.jpg */,
-				709FB35C16D20D6D0010DCF5 /* office-sakura.jpg */,
 				709FB35D16D20D6D0010DCF5 /* setting.png */,
 				709FB35E16D20D6D0010DCF5 /* setting@2x.png */,
 			);
@@ -366,10 +354,6 @@
 				709FB36016D20D6D0010DCF5 /* blog_list@2x.png in Resources */,
 				709FB36116D20D6D0010DCF5 /* home.png in Resources */,
 				709FB36216D20D6D0010DCF5 /* home@2x.png in Resources */,
-				709FB36316D20D6D0010DCF5 /* kuru0214.jpg in Resources */,
-				709FB36416D20D6D0010DCF5 /* mamejiro040411.jpg in Resources */,
-				709FB36516D20D6D0010DCF5 /* nakachan777_2005.jpg in Resources */,
-				709FB36616D20D6D0010DCF5 /* office-sakura.jpg in Resources */,
 				709FB36716D20D6D0010DCF5 /* setting.png in Resources */,
 				709FB36816D20D6D0010DCF5 /* setting@2x.png in Resources */,
 				709FB3A716D266380010DCF5 /* favorite.png in Resources */,

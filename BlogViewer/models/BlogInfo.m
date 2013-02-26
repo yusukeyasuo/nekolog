@@ -73,7 +73,6 @@ static BlogInfo *_sharedInstance = nil;
 {
     _blogarray = [[NSArray alloc] init];
     _blogarray = blogarray;
-    [self save];
 }
 
 - (NSArray *)getBlogarray

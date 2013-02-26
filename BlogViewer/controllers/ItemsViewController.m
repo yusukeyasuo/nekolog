@@ -29,6 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[BlogInfo sharedManager] load];
     NSLog(@"ItemViewController");
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     _indicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
@@ -41,7 +42,11 @@
     _rssarray = [[BlogInfo sharedManager] getRssArray];
     if ([[BlogInfo sharedManager] getItemarray] == nil) {
         [self refresh];
+    } else {
+        _itemarray = (NSMutableArray *)[[BlogInfo sharedManager] getItemarray];
+        [self.tableView reloadData];
     }
+    
     _refreshControl = [[UIRefreshControl alloc] init];
     [_refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:_refreshControl];
@@ -82,6 +87,10 @@
     _indicator.hidden = NO;
     [_indicator startAnimating];
     [self getRss:_rssno];
+}
+
+- (IBAction)pressRefreshButton:(id)sender {
+    [self refresh];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -135,6 +144,10 @@
         [_itemdict setObject:_currentblog forKey:@"blog"];
         [_itemdict setObject:_currenttitle forKey:@"title"];
 		[_itemdict setObject:_currentlink forKey:@"link"];
+        
+        
+        
+        
         NSRegularExpression *regexp = [[NSRegularExpression alloc] initWithPattern:@"(<img.*?src=\")(.*?)(\".*?>)"
                                                                            options:0
                                                                              error:nil];
@@ -192,6 +205,11 @@
     return _itemarray.count;
 }
 
+- (float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 80.0f;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ItemCell *cell = (ItemCell *)[tableView dequeueReusableCellWithIdentifier:@"ItemCell"];
@@ -214,22 +232,22 @@
     cell.blogtitle.text = [dict objectForKey:@"blog"];
     cell.updated.text = datestr;
     
-    __block ItemCell *bCell = cell;
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[dict objectForKey:@"imageurl"]] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10.0f];
-    [cell.thumbnail setImageWithURLRequest:request
+    NSString *imageurl = [dict objectForKey:@"imageurl"];
+    if (imageurl.length < 5) {
+        [cell.thumbnail setImage:[UIImage imageNamed:@"noimage.gif"]];
+    } else {
+        __block ItemCell *bCell = cell;
+        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[dict objectForKey:@"imageurl"]] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10.0f];
+        [cell.thumbnail setImageWithURLRequest:request
                           placeholderImage:nil
                                    success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *_image) {
                                        [[BlogInfo sharedManager] setImageCache:_image imageurl:[dict objectForKey:@"imageurl"]];
                                        [bCell.thumbnail setImage:_image];
                                    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
                                    }];
-
-
+    }
 
     return cell;
 }
 
-- (IBAction)pressRefreshButton:(id)sender {
-    [self refresh];
-}
 @end

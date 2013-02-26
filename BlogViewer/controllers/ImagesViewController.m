@@ -203,14 +203,19 @@
     
     cell.tag = indexPath.row;
     
-    __block ImageCell *bCell = cell;
+    NSString *imageurl = [dict objectForKey:@"imageurl"];
+    if (imageurl.length < 5) {
+        [cell.imageview setImage:[UIImage imageNamed:@"noimage.gif"]];
+    } else {
+        __block ImageCell *bCell = cell;
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[dict objectForKey:@"imageurl"]]cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10.0f];
-    [cell.imageview setImageWithURLRequest:request
+        [cell.imageview setImageWithURLRequest:request
                            placeholderImage:nil
                                     success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *_image) {
                                         [bCell.imageview setImage:_image];
                                     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
                                     }];
+    }
     
     return cell;
 }
