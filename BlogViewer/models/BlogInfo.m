@@ -35,23 +35,25 @@ static BlogInfo *_sharedInstance = nil;
 - (NSArray *)getRssArray
 {
     _rssarray = @[@"http://blog.goo.ne.jp/kuru0214/rss2.xml",
-                  @"http://blog.goo.ne.jp/mamejiro040411/rss2.xml",
+                  @"http://blog.goo.ne.jp/hanamaruday/rss2.xml",
                   @"http://blog.goo.ne.jp/nakachan777_2005/rss2.xml",
                   @"http://blog.goo.ne.jp/office-sakura/rss2.xml",
-                  @"http://blog.goo.ne.jp/cat-margaux/rss2.xml",
                   @"http://blog.goo.ne.jp/e3goo12/rss2.xml",
-                  @"http://blog.goo.ne.jp/amoryoryo/rss2.xml",
-                  @"http://blog.goo.ne.jp/happy-kris/rss2.xml",
-                  @"http://blog.goo.ne.jp/yu_no_neko/rss2.xml",
-                  @"http://blog.goo.ne.jp/hanamaruday/rss2.xml",
-                  @"http://blog.goo.ne.jp/sarang_2005/rss2.xml",
+                  @"http://blog.goo.ne.jp/mijimiji_0401/rss2.xml",
+                  @"http://blog.goo.ne.jp/cat-margaux/rss2.xml",
+                  @"http://blog.goo.ne.jp/4cat/rss2.xml",
                   @"http://blog.goo.ne.jp/hinatamc/rss2.xml",
                   @"http://blog.goo.ne.jp/kijimuna5963/rss2.xml",
-                  @"http://blog.goo.ne.jp/nekoosaki/rss2.xml",
-                  @"http://blog.goo.ne.jp/4cat/rss2.xml",
-                  @"http://blog.goo.ne.jp/tummy2010/rss2.xml",
-                  @"http://blog.goo.ne.jp/mijimiji_0401/rss2.xml",
-                  @"http://blog.goo.ne.jp/jack_bauer_ctu_la/rss2.xml"];
+                  @"http://blog.goo.ne.jp/amoryoryo/rss2.xml",
+                  @"http://blog.goo.ne.jp/happy-kris/rss2.xml",
+                  @"http://blog.goo.ne.jp/sarang_2005/rss2.xml",
+                  @"http://blog.goo.ne.jp/ikeikechocochoco/rss2.xml",
+                  @"http://blog.goo.ne.jp/mamejiro040411/rss2.xml",
+                  @"http://blog.goo.ne.jp/txtpro250/rss2.xml",
+                  @"http://blog.goo.ne.jp/myutha/rss2.xml",
+                  @"http://blog.goo.ne.jp/queensasha/rss2.xml",
+                  @"http://blog.goo.ne.jp/mu-musashi77/rss2.xml",
+                  @"http://blog.goo.ne.jp/show2001_2005/rss2.xml"];
 
     
     return _rssarray;
@@ -73,6 +75,7 @@ static BlogInfo *_sharedInstance = nil;
 {
     _blogarray = [[NSArray alloc] init];
     _blogarray = blogarray;
+    [self save];
 }
 
 - (NSArray *)getBlogarray
@@ -99,7 +102,9 @@ static BlogInfo *_sharedInstance = nil;
     if (!_imageCache) {
         _imageCache =[[NSMutableDictionary alloc] init];
     }
-    [_imageCache setObject:image forKey:imageurl];
+    if (![[_imageCache allKeys] containsObject:imageurl]) {
+        [_imageCache setObject:image forKey:imageurl];
+    }
     //[self save];
 }
 

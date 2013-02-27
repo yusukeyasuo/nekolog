@@ -70,6 +70,7 @@
         _xmlparser = [[NSXMLParser alloc] initWithData:responseObject];
         [_xmlparser setDelegate:self];
         _initem = NO;
+        _inimage = NO;
         _currentblog = [[NSMutableString alloc] init];
         [_xmlparser parse];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -117,13 +118,18 @@
 		_currentdescription = [[NSMutableString alloc] init];
 		_currentlink = [[NSMutableString alloc] init];
     }
+    if ([elementName isEqualToString:@"image"]) {
+        _inimage = YES;
+    }
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
 {
     if ([_currentelement isEqualToString:@"title"]) {
         if (!_initem) {
-            [_currentblog appendString:string];
+            if (!_inimage) {
+                [_currentblog appendString:string];
+            }
         } else {
             [_currenttitle appendString:string];
         }
@@ -230,11 +236,16 @@
     cell.thumbnail.image = [[UIImage alloc] init];
     cell.itemtitle.text = [dict objectForKey:@"title"];
     cell.blogtitle.text = [dict objectForKey:@"blog"];
+    NSLog(@"blog: %@", cell.blogtitle.text);
     cell.updated.text = datestr;
     
     NSString *imageurl = [dict objectForKey:@"imageurl"];
     if (imageurl.length < 5) {
         [cell.thumbnail setImage:[UIImage imageNamed:@"noimage.gif"]];
+        CALayer *layer = [cell.thumbnail layer];
+        [layer setMasksToBounds:YES];
+        [layer setBorderWidth: 1.f];
+        [layer setBorderColor:[[UIColor lightGrayColor] CGColor]];
     } else {
         __block ItemCell *bCell = cell;
         NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[dict objectForKey:@"imageurl"]] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10.0f];
@@ -243,6 +254,10 @@
                                    success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *_image) {
                                        [[BlogInfo sharedManager] setImageCache:_image imageurl:[dict objectForKey:@"imageurl"]];
                                        [bCell.thumbnail setImage:_image];
+                                       CALayer *layer = [bCell.thumbnail layer];
+                                       [layer setMasksToBounds:YES];
+                                       [layer setBorderWidth: 1.f];
+                                       [layer setBorderColor:[[UIColor lightGrayColor] CGColor]];
                                    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
                                    }];
     }

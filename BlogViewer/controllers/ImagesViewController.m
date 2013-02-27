@@ -10,6 +10,7 @@
 #import "BlogInfo.h"
 #import "AFNetworking.h"
 #import "WebViewController.h"
+#import "ScrollViewController.h"
 #import "ImageCell.h"
 
 @interface ImagesViewController ()
@@ -66,6 +67,7 @@
         _xmlparser = [[NSXMLParser alloc] initWithData:responseObject];
         [_xmlparser setDelegate:self];
         _initem = NO;
+        _inimage = NO;
         _currentblog = [[NSMutableString alloc] init];
         [_xmlparser parse];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -88,9 +90,14 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     UICollectionViewCell *cell = sender;
+    ScrollViewController *scrollController = segue.destinationViewController;
+    scrollController.hidesBottomBarWhenPushed = YES;
+    scrollController.selected = cell.tag;
+    /*
     WebViewController *webController = segue.destinationViewController;
     webController.hidesBottomBarWhenPushed = YES;
     webController.itemdict = _itemarray[cell.tag];
+    //*/
 }
 
 #pragma mark - XML parser delegate
@@ -109,13 +116,18 @@
 		_currentdescription = [[NSMutableString alloc] init];
 		_currentlink = [[NSMutableString alloc] init];
     }
+    if ([elementName isEqualToString:@"image"]) {
+        _inimage = YES;
+    }
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
 {
     if ([_currentelement isEqualToString:@"title"]) {
         if (!_initem) {
-            [_currentblog appendString:string];
+            if (!_inimage) {
+                [_currentblog appendString:string];
+            }
         } else {
             [_currenttitle appendString:string];
         }
@@ -212,10 +224,12 @@
         [cell.imageview setImageWithURLRequest:request
                            placeholderImage:nil
                                     success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *_image) {
+                                        [[BlogInfo sharedManager] setImageCache:_image imageurl:[dict objectForKey:@"imageurl"]];
                                         [bCell.imageview setImage:_image];
                                     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
                                     }];
     }
+    NSLog(@"blog: %@", [dict objectForKey:@"blog"]);
     
     return cell;
 }

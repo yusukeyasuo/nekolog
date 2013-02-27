@@ -212,6 +212,10 @@
     NSString *imageurl = [dict objectForKey:@"imageurl"];
     if (imageurl.length < 5) {
         [cell.thumbnail setImage:[UIImage imageNamed:@"noimage.gif"]];
+        CALayer *layer = [cell.thumbnail layer];
+        [layer setMasksToBounds:YES];
+        [layer setBorderWidth: 1.f];
+        [layer setBorderColor:[[UIColor lightGrayColor] CGColor]];
     } else {
         __block BlogCell *bCell = cell;
         NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[dict objectForKey:@"imageurl"]] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10.0f];
@@ -220,6 +224,10 @@
                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *_image) {
                                            [[BlogInfo sharedManager] setImageCache:_image imageurl:[dict objectForKey:@"imageurl"]];
                                            [bCell.thumbnail setImage:_image];
+                                           CALayer *layer = [bCell.thumbnail layer];
+                                           [layer setMasksToBounds:YES];
+                                           [layer setBorderWidth: 1.f];
+                                           [layer setBorderColor:[[UIColor lightGrayColor] CGColor]];
                                        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
                                        }];
     }

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 
 @interface ItemsViewController : UITableViewController <NSXMLParserDelegate>
 {
@@ -26,6 +27,7 @@
     NSMutableString *_currentdescription;
     NSString *_imageurl;
     BOOL _initem;
+    BOOL _inimage;
     int _rssno;
 }
 - (IBAction)pressRefreshButton:(id)sender;
