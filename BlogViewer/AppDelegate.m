@@ -24,7 +24,6 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    NSLog(@"save");
     [[BlogInfo sharedManager] save];
 }
 
@@ -40,7 +39,6 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    NSLog(@"save2");
     [[BlogInfo sharedManager] save];
 }
 

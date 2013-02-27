@@ -20,7 +20,12 @@
     IBOutlet UIBarButtonItem *_goforwardbutton;
     IBOutlet UIBarButtonItem *_refreshbutton;
     IBOutlet UIWebView *_webview;
+    IBOutlet UIBarButtonItem *_favoritebutton;
+
 }
 
 @property (nonatomic, strong) NSDictionary *itemdict;
+
+- (IBAction)pressFavoriteButton:(id)sender;
+
 @end

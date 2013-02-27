@@ -11,6 +11,8 @@
 
 @interface FavoriteViewController : UITableViewController
 {
+    IBOutlet UIBarButtonItem *_editbutton;
+    
     NSArray *_favoritearray;
 }
 

@@ -30,7 +30,6 @@
 {
     [super viewDidLoad];
     [[BlogInfo sharedManager] load];
-    NSLog(@"ItemViewController");
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     _indicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
     [_indicator setCenter:CGPointMake(160.0f, 240.0f)];
@@ -236,7 +235,6 @@
     cell.thumbnail.image = [[UIImage alloc] init];
     cell.itemtitle.text = [dict objectForKey:@"title"];
     cell.blogtitle.text = [dict objectForKey:@"blog"];
-    NSLog(@"blog: %@", cell.blogtitle.text);
     cell.updated.text = datestr;
     
     NSString *imageurl = [dict objectForKey:@"imageurl"];

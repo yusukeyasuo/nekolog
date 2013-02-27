@@ -167,6 +167,12 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="LHA-uQ-Svk"/>
+                                    <barButtonItem image="star.png" style="plain" id="hCT-y1-rKG">
+                                        <connections>
+                                            <action selector="pressFavoriteButton:" destination="uU7-SA-cjO" id="Nd3-jZ-R60"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="VAa-j7-T7L"/>
                                     <barButtonItem style="plain" systemItem="refresh" id="xQM-bh-4uW">
                                         <connections>
                                             <action selector="reload" destination="M3Z-v5-mX7" id="bCd-vi-Ax0"/>
@@ -208,6 +214,7 @@
                     <navigationItem key="navigationItem" id="GCp-Ho-K6t"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="_favoritebutton" destination="hCT-y1-rKG" id="eNc-xg-Ltd"/>
                         <outlet property="_gobackbutton" destination="gtl-ID-bOE" id="Sw6-hH-C3h"/>
                         <outlet property="_goforwardbutton" destination="SUP-IG-Rba" id="Ki9-LG-TZH"/>
                         <outlet property="_indicator" destination="iH9-v9-gj9" id="Q0J-mw-6FH"/>
@@ -712,9 +719,7 @@
                         </prototypes>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="お気に入り" id="T6u-qZ-fQF"/>
-                    <navigationItem key="navigationItem" title="お気に入り" id="Rjh-j6-Qt5">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="DMN-xD-5vv"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="お気に入り" id="Rjh-j6-Qt5"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cvn-SN-awR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -818,6 +823,8 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="XKh-Ws-IpA"/>
+                                    <barButtonItem image="star.png" style="plain" id="nv1-1c-dJc"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="cma-Je-37g"/>
                                     <barButtonItem style="plain" systemItem="refresh" id="bNr-is-awV">
                                         <connections>
                                             <action selector="reload" destination="MUp-cD-8cZ" id="YFz-KC-NrD"/>
@@ -948,12 +955,13 @@
     </scenes>
     <resources>
         <image name="blog_list.png" width="24" height="22"/>
-        <image name="favorite.png" width="24" height="24"/>
+        <image name="favorite.png" width="32" height="32"/>
         <image name="home.png" width="24" height="22"/>
         <image name="icon_go_back.png" width="27" height="27"/>
         <image name="icon_go_foward.png" width="27" height="27"/>
-        <image name="images.png" width="30" height="23"/>
+        <image name="images.png" width="23" height="18"/>
         <image name="setting.png" width="24" height="22"/>
+        <image name="star.png" width="32" height="32"/>
     </resources>
     <classes>
         <class className="BlogCell" superclassName="UITableViewCell">
@@ -975,6 +983,9 @@
         </class>
         <class className="FavoriteViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FavoriteViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="_editbutton" candidateClass="UIBarButtonItem"/>
+            </relationships>
         </class>
         <class className="ImageCell" superclassName="UICollectionViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ImageCell.h"/>
@@ -1039,7 +1050,9 @@
         <class className="WebViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/WebViewController.h"/>
             <relationships>
+                <relationship kind="action" name="pressFavoriteButton:"/>
                 <relationship kind="action" name="showActionsheet:"/>
+                <relationship kind="outlet" name="_favoritebutton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="_gobackbutton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="_goforwardbutton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="_indicator" candidateClass="UIActivityIndicatorView"/>

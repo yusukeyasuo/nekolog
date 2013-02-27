@@ -89,12 +89,21 @@ static BlogInfo *_sharedInstance = nil;
         _favoritearray = [[NSMutableArray alloc] init];
     }
     [_favoritearray addObject:favoritedict];
-    [self save];
+    //[self save];
 }
 
 - (NSArray *)getFavoritevarray
 {
     return _favoritearray;
+}
+
+- (BOOL)removeFavoritearray:(NSInteger)index
+{
+    if (index >= _favoritearray.count || index < _favoritearray.count - 1) {
+        return false;
+    }
+    [_favoritearray removeObjectAtIndex:index];
+    return true;
 }
 
 - (void)setImageCache:(UIImage *)image imageurl:(NSString *)imageurl

@@ -25,7 +25,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"OtherViewController");
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     
 }

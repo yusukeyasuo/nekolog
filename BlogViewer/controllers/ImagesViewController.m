@@ -30,7 +30,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"ImagesViewController");
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
@@ -229,7 +228,6 @@
                                     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
                                     }];
     }
-    NSLog(@"blog: %@", [dict objectForKey:@"blog"]);
     
     return cell;
 }

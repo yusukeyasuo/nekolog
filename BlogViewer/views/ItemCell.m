@@ -56,5 +56,4 @@
     CGGradientRelease(gradient);
 }
 
-
 @end

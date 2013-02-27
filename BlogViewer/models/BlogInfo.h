@@ -44,6 +44,7 @@
 - (void)setImageCache:(UIImage *)image imageurl:(NSString *)imageurl;
 - (UIImage *)getImageCache:(NSString *)imageurl;
 - (void)addFavoritearray:(NSDictionary *)favoritedict;
+- (BOOL)removeFavoritearray:(NSInteger)index;
 - (NSArray *)getFavoritevarray;
 - (BOOL)checkImageCache:(NSString *)imageurl;
 - (void)save;

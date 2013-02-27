@@ -29,7 +29,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"BlogsViewController");
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     self.tableView.separatorColor = [UIColor colorWithRed:0.79 green:0.79 blue:0.79 alpha:1];
     

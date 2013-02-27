@@ -61,6 +61,12 @@
     [_actionsheet showFromToolbar:self.navigationController.toolbar];
 }
 
+- (IBAction)pressFavoriteButton:(id)sender
+{
+    _favoritebutton.image = [UIImage imageNamed:@"favorite.png"];
+    [[BlogInfo sharedManager] addFavoritearray:_itemdict];
+}
+
 #pragma mark - ActionSheet delegate
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
