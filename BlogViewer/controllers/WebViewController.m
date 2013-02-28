@@ -33,6 +33,18 @@
     _blogurl = [_blogurl stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
     self.title = [_itemdict objectForKey:@"title"];
     
+    // お気に入りに登録されているか確認
+    for (NSDictionary *dict in [[BlogInfo sharedManager] getFavoritevarray])
+    {
+        if ([[dict objectForKey:@"link"] isEqualToString:[_itemdict objectForKey:@"link"]])
+        {
+            _favoritebutton.image = [UIImage imageNamed:@"favorite.png"];
+            _favoritestatus = YES;
+        } else {
+            _favoritestatus = NO;
+        }
+    }
+    
     // シェア方法を選択
     _shareitems = @[@"Twitterに投稿", @"Facebookに投稿", @"Safariで開く", @"お気に入りに登録"];
     
@@ -63,7 +75,13 @@
 
 - (IBAction)pressFavoriteButton:(id)sender
 {
-    _favoritebutton.image = [UIImage imageNamed:@"favorite.png"];
+    if (_favoritestatus) {
+        _favoritebutton.image = [UIImage imageNamed:@"star.png"];
+        _favoritestatus = NO;
+    } else {
+        _favoritebutton.image = [UIImage imageNamed:@"favorite.png"];
+        _favoritestatus = YES;
+    }
     [[BlogInfo sharedManager] addFavoritearray:_itemdict];
 }
 

@@ -36,7 +36,7 @@
 @property (nonatomic, strong) NSArray *bloginfo;
 
 + (BlogInfo *)sharedManager;
-- (NSArray *)getRssArray;
+- (void)getRssArraywithCompletion:(void(^)(NSArray *responceObject, NSError *error))completion;
 - (void)setItemarray:(NSArray *)itemarray;
 - (NSArray *)getItemarray;
 - (void)setBlogarray:(NSArray *)blogarray;

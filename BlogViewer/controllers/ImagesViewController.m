@@ -40,7 +40,6 @@
     [self.view bringSubviewToFront:_indicator];
     _indicator.hidden = YES;
     
-    _rssarray = [[BlogInfo sharedManager] getRssArray];
     _itemarray = (NSMutableArray *)[[BlogInfo sharedManager] getItemarray];
     if (_itemarray == nil) {
         [self refresh];
@@ -77,13 +76,20 @@
 
 - (void)refresh
 {
-    _itemarray = [[NSMutableArray alloc] init];
-    [self.collectionView reloadData];
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    _rssno = 0;
-    _indicator.hidden = NO;
-    [_indicator startAnimating];
-    [self getRss:_rssno];
+    [[BlogInfo sharedManager] getRssArraywithCompletion:^(NSArray *responceObject, NSError *error) {
+        if (error)
+        {
+        } else {
+            _rssarray = responceObject;
+            _itemarray = [[NSMutableArray alloc] init];
+            [self.collectionView reloadData];
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+            _rssno = 0;
+            _indicator.hidden = NO;
+            [_indicator startAnimating];
+            [self getRss:_rssno];
+        }
+    }];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

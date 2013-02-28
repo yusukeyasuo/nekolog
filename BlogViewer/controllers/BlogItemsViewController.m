@@ -39,7 +39,6 @@
     [self.view bringSubviewToFront:_indicator];
     _indicator.hidden = YES;
     
-    _rssarray = [[BlogInfo sharedManager] getRssArray];
     [self refresh];
     
     _refreshControl = [[UIRefreshControl alloc] init];
@@ -55,12 +54,19 @@
 
 - (void)refresh
 {
-    _itemarray = [[NSMutableArray alloc] init];
-    [self.tableView reloadData];
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    _indicator.hidden = NO;
-    [_indicator startAnimating];
-    [self getRss:[_blogno intValue]];
+    [[BlogInfo sharedManager] getRssArraywithCompletion:^(NSArray *responceObject, NSError *error) {
+        if (error)
+        {
+        } else {
+            _rssarray = responceObject;
+            _itemarray = [[NSMutableArray alloc] init];
+            [self.tableView reloadData];
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+            _indicator.hidden = NO;
+            [_indicator startAnimating];
+            [self getRss:[_blogno intValue]];
+        }
+    }];
 }
 
 - (void)getRss:(int)rssnumber

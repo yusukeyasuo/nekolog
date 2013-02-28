@@ -748,6 +748,12 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="usf-63-zXF"/>
+                                    <barButtonItem image="star.png" style="plain" id="4DR-hn-eI9">
+                                        <connections>
+                                            <action selector="pressFavoriteButton:" destination="8UX-iR-4ST" id="Rhe-po-P0A"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="fYL-Ph-53L"/>
                                     <barButtonItem style="plain" systemItem="refresh" id="YZS-KC-zOJ">
                                         <connections>
                                             <action selector="reload" destination="uNr-yM-GXt" id="o3T-lX-Umq"/>
@@ -789,6 +795,7 @@
                     <navigationItem key="navigationItem" id="pYJ-Eg-Lh7"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="_favoritebutton" destination="4DR-hn-eI9" id="EUY-NV-3we"/>
                         <outlet property="_gobackbutton" destination="DeI-Cs-LDd" id="FoE-Em-6Bt"/>
                         <outlet property="_goforwardbutton" destination="elH-WN-k3P" id="Im4-0p-MB4"/>
                         <outlet property="_indicator" destination="zdC-EA-zBJ" id="0Mm-3z-uMt"/>
@@ -823,7 +830,11 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="XKh-Ws-IpA"/>
-                                    <barButtonItem image="star.png" style="plain" id="nv1-1c-dJc"/>
+                                    <barButtonItem image="star.png" style="plain" id="nv1-1c-dJc">
+                                        <connections>
+                                            <action selector="pressFavoriteButton:" destination="uUp-zH-Urv" id="YeQ-fs-aX6"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="cma-Je-37g"/>
                                     <barButtonItem style="plain" systemItem="refresh" id="bNr-is-awV">
                                         <connections>
@@ -900,6 +911,12 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="hn7-cV-YuD"/>
+                                    <barButtonItem image="star.png" style="plain" id="alX-h7-Zsl">
+                                        <connections>
+                                            <action selector="pressFavoriteButton:" destination="CSu-St-mMQ" id="t9f-zL-u6E"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="O3b-7Q-lxv"/>
                                     <barButtonItem style="plain" systemItem="refresh" id="e3P-0j-8cM">
                                         <connections>
                                             <action selector="reload" destination="kfQ-5r-N9E" id="XC0-Hn-k5A"/>
@@ -941,6 +958,7 @@
                     <navigationItem key="navigationItem" id="Wnf-Rg-lj4"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="_favoritebutton" destination="alX-h7-Zsl" id="iQE-7d-fJy"/>
                         <outlet property="_gobackbutton" destination="Cnp-74-DKM" id="yRm-Pn-x7Q"/>
                         <outlet property="_goforwardbutton" destination="nvI-Nz-CWH" id="JHt-Uw-14C"/>
                         <outlet property="_indicator" destination="2cj-aC-Te5" id="224-eX-PFN"/>
@@ -1051,7 +1069,6 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/WebViewController.h"/>
             <relationships>
                 <relationship kind="action" name="pressFavoriteButton:"/>
-                <relationship kind="action" name="showActionsheet:"/>
                 <relationship kind="outlet" name="_favoritebutton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="_gobackbutton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="_goforwardbutton" candidateClass="UIBarButtonItem"/>

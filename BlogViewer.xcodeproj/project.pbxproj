@@ -241,22 +241,22 @@
 		708991B516CDB707004899CF /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				706D493E16DE4B9100546BF1 /* BlogItemsViewController.m */,
-				706D493F16DE4B9100546BF1 /* BlogItemsViewController.h */,
-				706D494016DE4B9100546BF1 /* ScrollViewController.h */,
-				706D493D16DE4B9100546BF1 /* ScrollViewController.m */,
-				706D494216DE4B9100546BF1 /* WebViewController.h */,
-				706D494116DE4B9100546BF1 /* WebViewController.m */,
 				709FB33F16D205610010DCF5 /* ItemsViewController.h */,
 				709FB34016D205610010DCF5 /* ItemsViewController.m */,
 				709FB33916D205600010DCF5 /* BlogsViewController.h */,
 				709FB33A16D205610010DCF5 /* BlogsViewController.m */,
+				706D493F16DE4B9100546BF1 /* BlogItemsViewController.h */,
+				706D493E16DE4B9100546BF1 /* BlogItemsViewController.m */,
 				709FB33B16D205610010DCF5 /* FavoriteViewController.h */,
 				709FB33C16D205610010DCF5 /* FavoriteViewController.m */,
 				709FB33D16D205610010DCF5 /* ImagesViewController.h */,
 				709FB33E16D205610010DCF5 /* ImagesViewController.m */,
 				709FB34116D205620010DCF5 /* OtherViewController.h */,
 				709FB34216D205620010DCF5 /* OtherViewController.m */,
+				706D494016DE4B9100546BF1 /* ScrollViewController.h */,
+				706D493D16DE4B9100546BF1 /* ScrollViewController.m */,
+				706D494216DE4B9100546BF1 /* WebViewController.h */,
+				706D494116DE4B9100546BF1 /* WebViewController.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";

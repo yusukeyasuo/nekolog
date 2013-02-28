@@ -22,6 +22,7 @@
     IBOutlet UIWebView *_webview;
     IBOutlet UIBarButtonItem *_favoritebutton;
 
+    BOOL _favoritestatus;
 }
 
 @property (nonatomic, strong) NSDictionary *itemdict;

@@ -35,6 +35,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     _favoritearray = [[BlogInfo sharedManager] getFavoritevarray];
     [self.tableView reloadData];
 }

@@ -39,8 +39,6 @@
     [self.view bringSubviewToFront:_indicator];
     _indicator.hidden = YES;
     
-    _rssarray = [[BlogInfo sharedManager] getRssArray];
-    
     if ([[BlogInfo sharedManager] getBlogarray] == nil) {
         [self refresh];
     } else {
@@ -55,13 +53,20 @@
 
 - (void)refresh
 {
-    _blogarray = [[NSMutableArray alloc] init];
-    [self.tableView reloadData];
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    _rssno = 0;
-    _indicator.hidden = NO;
-    [_indicator startAnimating];
-    [self getRss:_rssno];
+    [[BlogInfo sharedManager] getRssArraywithCompletion:^(NSArray *responceObject, NSError *error) {
+        if (error)
+        {
+        } else {
+            _rssarray = responceObject;
+            _blogarray = [[NSMutableArray alloc] init];
+            [self.tableView reloadData];
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+            _rssno = 0;
+            _indicator.hidden = NO;
+            [_indicator startAnimating];
+            [self getRss:_rssno];
+        }
+    }];
 }
 
 - (void)getRss:(int)rssnumber

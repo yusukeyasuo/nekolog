@@ -7,6 +7,7 @@
 //
 
 #import "BlogInfo.h"
+#import "AFNetworking.h"
 
 @implementation BlogInfo
 
@@ -32,31 +33,29 @@ static BlogInfo *_sharedInstance = nil;
     return self;
 }
 
-- (NSArray *)getRssArray
+- (void)getRssArraywithCompletion:(void(^)(NSArray *responceObject, NSError *error))completion
 {
-    _rssarray = @[@"http://blog.goo.ne.jp/kuru0214/rss2.xml",
-                  @"http://blog.goo.ne.jp/hanamaruday/rss2.xml",
-                  @"http://blog.goo.ne.jp/nakachan777_2005/rss2.xml",
-                  @"http://blog.goo.ne.jp/office-sakura/rss2.xml",
-                  @"http://blog.goo.ne.jp/e3goo12/rss2.xml",
-                  @"http://blog.goo.ne.jp/mijimiji_0401/rss2.xml",
-                  @"http://blog.goo.ne.jp/cat-margaux/rss2.xml",
-                  @"http://blog.goo.ne.jp/4cat/rss2.xml",
-                  @"http://blog.goo.ne.jp/hinatamc/rss2.xml",
-                  @"http://blog.goo.ne.jp/kijimuna5963/rss2.xml",
-                  @"http://blog.goo.ne.jp/amoryoryo/rss2.xml",
-                  @"http://blog.goo.ne.jp/happy-kris/rss2.xml",
-                  @"http://blog.goo.ne.jp/sarang_2005/rss2.xml",
-                  @"http://blog.goo.ne.jp/ikeikechocochoco/rss2.xml",
-                  @"http://blog.goo.ne.jp/mamejiro040411/rss2.xml",
-                  @"http://blog.goo.ne.jp/txtpro250/rss2.xml",
-                  @"http://blog.goo.ne.jp/myutha/rss2.xml",
-                  @"http://blog.goo.ne.jp/queensasha/rss2.xml",
-                  @"http://blog.goo.ne.jp/mu-musashi77/rss2.xml",
-                  @"http://blog.goo.ne.jp/show2001_2005/rss2.xml"];
-
+    NSString *urlStr = @"http://133.242.129.55/work/blog.php";
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlStr]
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:10.0f];
     
-    return _rssarray;
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSError *error;
+        NSArray *jsonObject = [NSJSONSerialization JSONObjectWithData:responseObject
+                                                                   options:NSJSONReadingAllowFragments
+                                                                     error:&error];
+        if (error) {
+            completion(nil, error);
+            return;
+        }
+        completion(jsonObject, nil);
+        return;
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        return;
+    }];
+    [operation start];
 }
 
 - (void)setItemarray:(NSArray *)itemarray
@@ -88,6 +87,15 @@ static BlogInfo *_sharedInstance = nil;
     if (!_favoritearray) {
         _favoritearray = [[NSMutableArray alloc] init];
     }
+    
+    for (int i = 0; i < _favoritearray.count; i++)
+    {
+        if ([[_favoritearray[i] objectForKey:@"link"] isEqualToString:[favoritedict objectForKey:@"link"]])
+        {
+            [self removeFavoritearray:i];
+            return;
+        }
+    }
     [_favoritearray addObject:favoritedict];
     //[self save];
 }
@@ -99,7 +107,7 @@ static BlogInfo *_sharedInstance = nil;
 
 - (BOOL)removeFavoritearray:(NSInteger)index
 {
-    if (index >= _favoritearray.count || index < _favoritearray.count - 1) {
+    if (index >= _favoritearray.count || index < 0) {
         return false;
     }
     [_favoritearray removeObjectAtIndex:index];
