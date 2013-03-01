@@ -96,7 +96,7 @@ static BlogInfo *_sharedInstance = nil;
             return;
         }
     }
-    [_favoritearray addObject:favoritedict];
+    [_favoritearray insertObject:favoritedict atIndex:0];
     //[self save];
 }
 

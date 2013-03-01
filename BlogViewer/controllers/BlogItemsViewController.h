@@ -14,9 +14,9 @@
     UIActivityIndicatorView *_indicator;
     UIRefreshControl *_refreshControl;
     
-    NSNumber *_blogno;
+    NSInteger _blogno;
     NSMutableArray *_itemarray;
-    NSArray *_rssarray;
+    NSArray *_blogarray;
     NSXMLParser *_xmlparser;
     NSString *_currentelement;
     NSMutableDictionary *_itemdict;
@@ -27,6 +27,6 @@
     NSString *_imageurl;
 }
 
-@property (nonatomic, strong) NSNumber *blogno;
+@property (nonatomic) NSInteger blogno;
 
 @end

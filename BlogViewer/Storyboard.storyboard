@@ -877,6 +877,7 @@
                     <navigationItem key="navigationItem" id="4Zz-Rm-wqc"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="_favoritebutton" destination="nv1-1c-dJc" id="QPy-mS-WCr"/>
                         <outlet property="_gobackbutton" destination="QwM-rh-FuB" id="uFk-nH-bMQ"/>
                         <outlet property="_goforwardbutton" destination="H8j-eX-9bg" id="zZn-90-RiD"/>
                         <outlet property="_indicator" destination="1iA-fg-zSr" id="naX-v2-fmh"/>

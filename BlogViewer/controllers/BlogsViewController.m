@@ -101,7 +101,7 @@
 {
     BlogCell *cell = sender;
     BlogItemsViewController *blogitemsController = segue.destinationViewController;
-    blogitemsController.blogno = [[NSNumber alloc] initWithInt:cell.tag];
+    blogitemsController.blogno = cell.tag;
     blogitemsController.title = [_blogarray[cell.tag] objectForKey:@"blog"];
 }
 
@@ -133,6 +133,7 @@
         datestr = [datestr stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
         NSDate *date = [formatter dateFromString:datestr];
 		[_blogdict setObject:date forKey:@"date"];
+        [_blogdict setObject:[_rssarray objectAtIndex:_rssno] forKey:@"rss"];
         
         [_blogarray addObject:[_blogdict copy]];
     }

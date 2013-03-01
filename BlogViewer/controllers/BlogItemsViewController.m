@@ -38,6 +38,7 @@
     [self.view addSubview:_indicator];
     [self.view bringSubviewToFront:_indicator];
     _indicator.hidden = YES;
+    _itemarray = [[NSMutableArray alloc] init];
     
     [self refresh];
     
@@ -54,27 +55,22 @@
 
 - (void)refresh
 {
-    [[BlogInfo sharedManager] getRssArraywithCompletion:^(NSArray *responceObject, NSError *error) {
-        if (error)
-        {
-        } else {
-            _rssarray = responceObject;
-            _itemarray = [[NSMutableArray alloc] init];
-            [self.tableView reloadData];
-            [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-            _indicator.hidden = NO;
-            [_indicator startAnimating];
-            [self getRss:[_blogno intValue]];
-        }
-    }];
+    _blogarray = [[BlogInfo sharedManager] getBlogarray];
+    [self.tableView reloadData];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+     _indicator.hidden = NO;
+    [_indicator startAnimating];
+    [self getRss:_blogno];
 }
 
 - (void)getRss:(int)rssnumber
 {
-    if (rssnumber > _rssarray.count - 1) {
+    if (rssnumber > _blogarray.count - 1 || rssnumber < 0) {
         return;
     }
-    NSURL *url = [NSURL URLWithString:[_rssarray objectAtIndex:rssnumber]];
+    NSString *rssstring = [_blogarray[rssnumber] objectForKey:@"rss"];
+    NSLog(@"link: %@", rssstring);
+    NSURL *url = [NSURL URLWithString:rssstring];
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
     
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
