@@ -36,13 +36,15 @@
     _imageviewarray = [[NSMutableArray alloc] init];
     CGRect rect = CGRectMake(0, 0, 320.0f, 320.0f);
     
-    for (NSInteger i = 0; i < [_itemarray count]; i ++)
+    for (NSInteger i = 0; i < _itemarray.count; i ++)
     {
         rect.origin.x = i * rect.size.width;
         
         NSDictionary *dict = _itemarray[i];
         NSString *imageurl = [dict objectForKey:@"imageurl"];
         UIImageView *imageview = [[UIImageView alloc] initWithFrame:rect];
+        UIImageView *to_left = [[UIImageView alloc] initWithFrame:CGRectMake(5.0f, 140.0f, 40.0f, 40.0f)];
+        UIImageView *to_right = [[UIImageView alloc] initWithFrame:CGRectMake(275.0f, 140.0f, 40.0f, 40.0f)];
         imageview.contentMode = UIViewContentModeScaleAspectFit;
         if (imageurl.length < 5) {
             [imageview setImage:[UIImage imageNamed:@"noimage.gif"]];
@@ -62,6 +64,16 @@
         }
 
         [_scrollView addSubview:imageview];
+        if (i != 0) {
+            [to_left setImage:[UIImage imageNamed:@"to_left.png"]];
+            to_left.alpha = 0.5;
+            [imageview addSubview:to_left];
+        }
+        if (i != _itemarray.count - 1) {
+            [to_right setImage:[UIImage imageNamed:@"to_right.png"]];
+            to_right.alpha = 0.5;
+            [imageview addSubview:to_right];
+        }
         [_imageviewarray addObject:imageview];
         _scrollView.contentSize = CGSizeMake(rect.size.width * [_itemarray count], rect.size.height);
         _scrollView.pagingEnabled = YES;

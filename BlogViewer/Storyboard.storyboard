@@ -445,7 +445,7 @@
                                     <constraint firstItem="1UX-2E-ICj" firstAttribute="centerX" secondItem="o8r-g8-61m" secondAttribute="centerX" type="default" id="c4Q-LG-jEV"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="_imageview" destination="1UX-2E-ICj" id="qqg-Rl-Lzx"/>
+                                    <outlet property="imageview" destination="1UX-2E-ICj" id="sJc-5G-EYf"/>
                                     <segue destination="NYx-Jq-paN" kind="push" id="IO4-0E-cJT"/>
                                 </connections>
                             </collectionViewCell>
@@ -495,7 +495,7 @@
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="uiL-Ff-OBK">
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="57" id="ebV-EN-kV6"/>
+                                                        <constraint firstAttribute="height" constant="57" id="t7e-9e-m3L"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -519,6 +519,14 @@
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="このブログを見る" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3h2-07-oME">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="110" id="Sbf-d1-EtC"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="0.40000000000000002" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -527,8 +535,11 @@
                                             <constraint firstItem="4db-7l-yUJ" firstAttribute="top" secondItem="Luk-vI-Xrc" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="8Za-tc-Z9J"/>
                                             <constraint firstItem="Luk-vI-Xrc" firstAttribute="top" secondItem="uiL-Ff-OBK" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Grh-PM-uXv"/>
                                             <constraint firstItem="Luk-vI-Xrc" firstAttribute="leading" secondItem="Ujz-Ck-Pm8" secondAttribute="leading" constant="20" type="default" id="IHS-O8-7MZ"/>
+                                            <constraint firstAttribute="trailing" secondItem="3h2-07-oME" secondAttribute="trailing" constant="13" id="Zrn-uu-HHd"/>
                                             <constraint firstItem="uiL-Ff-OBK" firstAttribute="leading" secondItem="Ujz-Ck-Pm8" secondAttribute="leading" constant="20" type="default" id="dbT-Gw-a3P"/>
                                             <constraint firstItem="uiL-Ff-OBK" firstAttribute="top" secondItem="Ujz-Ck-Pm8" secondAttribute="top" type="default" id="o71-hL-DlK"/>
+                                            <constraint firstItem="3h2-07-oME" firstAttribute="top" secondItem="Luk-vI-Xrc" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="pzG-eg-JpV"/>
+                                            <constraint firstItem="3h2-07-oME" firstAttribute="baseline" secondItem="4db-7l-yUJ" secondAttribute="baseline" type="default" id="ut0-9C-97t"/>
                                             <constraint firstAttribute="trailing" secondItem="uiL-Ff-OBK" secondAttribute="trailing" constant="20" type="default" id="zP1-fk-47D"/>
                                         </constraints>
                                         <connections>

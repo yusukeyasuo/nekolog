@@ -42,4 +42,16 @@
     [[BlogInfo sharedManager] save];
 }
 
+// NW接続状況の確認
+- (BOOL)checkNetworkAccess
+{
+    Reachability *reachablity = [Reachability reachabilityForInternetConnection];
+    NetworkStatus status = [reachablity currentReachabilityStatus];
+    if (status == NotReachable) {
+        return NO;
+    }
+    return YES;
+}
+
+
 @end

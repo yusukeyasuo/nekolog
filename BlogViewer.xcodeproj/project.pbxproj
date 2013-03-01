@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		7009518516DDB383007359C6 /* nekoicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7009518416DDB383007359C6 /* nekoicon.png */; };
+		7065635A16E040940086FB4D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7065635916E040940086FB4D /* SystemConfiguration.framework */; };
+		7065635E16E041C50086FB4D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 7065635D16E041C50086FB4D /* Reachability.m */; };
+		7065636316E058170086FB4D /* to_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 7065635F16E058170086FB4D /* to_right.png */; };
+		7065636416E058170086FB4D /* to_right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7065636016E058170086FB4D /* to_right@2x.png */; };
+		7065636516E058170086FB4D /* to_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 7065636116E058170086FB4D /* to_left.png */; };
+		7065636616E058170086FB4D /* to_left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7065636216E058170086FB4D /* to_left@2x.png */; };
 		706D493B16DE4B5D00546BF1 /* ScrollCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 706D493816DE4B5D00546BF1 /* ScrollCell.m */; };
 		706D493C16DE4B5D00546BF1 /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 706D493A16DE4B5D00546BF1 /* ImageCell.m */; };
 		706D494316DE4B9100546BF1 /* ScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 706D493D16DE4B9100546BF1 /* ScrollViewController.m */; };
@@ -64,6 +70,13 @@
 
 /* Begin PBXFileReference section */
 		7009518416DDB383007359C6 /* nekoicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nekoicon.png; sourceTree = "<group>"; };
+		7065635916E040940086FB4D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		7065635C16E041C50086FB4D /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		7065635D16E041C50086FB4D /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		7065635F16E058170086FB4D /* to_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = to_right.png; sourceTree = "<group>"; };
+		7065636016E058170086FB4D /* to_right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "to_right@2x.png"; sourceTree = "<group>"; };
+		7065636116E058170086FB4D /* to_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = to_left.png; sourceTree = "<group>"; };
+		7065636216E058170086FB4D /* to_left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "to_left@2x.png"; sourceTree = "<group>"; };
 		706D493716DE4B5D00546BF1 /* ScrollCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScrollCell.h; path = views/ScrollCell.h; sourceTree = "<group>"; };
 		706D493816DE4B5D00546BF1 /* ScrollCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScrollCell.m; path = views/ScrollCell.m; sourceTree = "<group>"; };
 		706D493916DE4B5D00546BF1 /* ImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageCell.h; path = views/ImageCell.h; sourceTree = "<group>"; };
@@ -150,6 +163,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7065635A16E040940086FB4D /* SystemConfiguration.framework in Frameworks */,
 				70E1266016D5C17200057022 /* Social.framework in Frameworks */,
 				709FB35216D207140010DCF5 /* QuartzCore.framework in Frameworks */,
 				7089919016CD3A06004899CF /* UIKit.framework in Frameworks */,
@@ -161,9 +175,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7065635B16E041C50086FB4D /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				7065635C16E041C50086FB4D /* Reachability.h */,
+				7065635D16E041C50086FB4D /* Reachability.m */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
 		7089918316CD3A06004899CF = {
 			isa = PBXGroup;
 			children = (
+				7065635916E040940086FB4D /* SystemConfiguration.framework */,
 				7009518416DDB383007359C6 /* nekoicon.png */,
 				708F21FB16DCB1D900D4011B /* Default-568h@2x.png */,
 				7089919516CD3A06004899CF /* BlogViewer */,
@@ -210,6 +234,7 @@
 		7089919616CD3A06004899CF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7065635B16E041C50086FB4D /* Reachability */,
 				706D495C16DE4C8700546BF1 /* InfoPlist.strings */,
 				709FB35716D20D6D0010DCF5 /* home.png */,
 				709FB38616D212450010DCF5 /* AFNetworking */,
@@ -264,6 +289,10 @@
 		708991B616CDB71E004899CF /* images */ = {
 			isa = PBXGroup;
 			children = (
+				7065635F16E058170086FB4D /* to_right.png */,
+				7065636016E058170086FB4D /* to_right@2x.png */,
+				7065636116E058170086FB4D /* to_left.png */,
+				7065636216E058170086FB4D /* to_left@2x.png */,
 				70EC285B16DE624E00CAEA8F /* star.png */,
 				70EC285C16DE624E00CAEA8F /* star@2x.png */,
 				70EC285916DE56AE00CAEA8F /* images@2x.png */,
@@ -394,6 +423,10 @@
 				70EC285A16DE56AE00CAEA8F /* images@2x.png in Resources */,
 				70EC285D16DE624E00CAEA8F /* star.png in Resources */,
 				70EC285E16DE624E00CAEA8F /* star@2x.png in Resources */,
+				7065636316E058170086FB4D /* to_right.png in Resources */,
+				7065636416E058170086FB4D /* to_right@2x.png in Resources */,
+				7065636516E058170086FB4D /* to_left.png in Resources */,
+				7065636616E058170086FB4D /* to_left@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,6 +461,7 @@
 				706D494316DE4B9100546BF1 /* ScrollViewController.m in Sources */,
 				706D494416DE4B9100546BF1 /* BlogItemsViewController.m in Sources */,
 				706D494516DE4B9100546BF1 /* WebViewController.m in Sources */,
+				7065635E16E041C50086FB4D /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
