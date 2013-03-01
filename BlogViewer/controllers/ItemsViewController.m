@@ -7,6 +7,7 @@
 //
 
 #import "ItemsViewController.h"
+#import "AppDelegate.h"
 #import "WebViewController.h"
 #import "ItemCell.h"
 #import "AFNetworking.h"
@@ -79,6 +80,19 @@
 
 - (void)refresh
 {
+    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    if (![appDelegate checkNetworkAccess])
+    {
+        [[[UIAlertView alloc] initWithTitle:nil
+                                    message:@"インターネット接続がオフラインのようです。"
+                                   delegate:nil
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil] show];
+        [_refreshControl endRefreshing];
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        return;
+    }
+    
     [[BlogInfo sharedManager] getRssArraywithCompletion:^(NSArray *responceObject, NSError *error) {
         if (error)
         {

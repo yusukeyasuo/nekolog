@@ -7,6 +7,7 @@
 //
 
 #import "WebViewController.h"
+#import "AppDelegate.h"
 #import "BlogInfo.h"
 
 @interface WebViewController ()
@@ -28,6 +29,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    if (![appDelegate checkNetworkAccess])
+    {
+        [[[UIAlertView alloc] initWithTitle:nil
+                                    message:@"インターネット接続がオフラインのようです。"
+                                   delegate:nil
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil] show];
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    }
+
 	// Do any additional setup after loading the view.
     _blogurl = [[_itemdict objectForKey:@"link"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     _blogurl = [_blogurl stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
