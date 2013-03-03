@@ -469,32 +469,33 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="pno-xX-znK">
-                            <size key="itemSize" width="80" height="80"/>
+                            <size key="itemSize" width="106.59999999999999" height="106.59999999999999"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="o8r-g8-61m" customClass="ImageCell">
-                                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                <rect key="frame" x="0.0" y="0.0" width="107" height="107"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="107" height="107"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="1UX-2E-ICj">
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="76" id="MSP-Pm-5Wo"/>
-                                                <constraint firstAttribute="width" constant="76" id="nH3-im-0f2"/>
+                                                <constraint firstAttribute="height" constant="103" id="O9R-Qh-Ocq"/>
+                                                <constraint firstAttribute="width" constant="103" id="VIt-xW-qPM"/>
                                             </constraints>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="1UX-2E-ICj" firstAttribute="centerY" secondItem="o8r-g8-61m" secondAttribute="centerY" type="default" id="9Nt-up-Nsn"/>
-                                    <constraint firstItem="1UX-2E-ICj" firstAttribute="centerX" secondItem="o8r-g8-61m" secondAttribute="centerX" type="default" id="c4Q-LG-jEV"/>
+                                    <constraint firstItem="1UX-2E-ICj" firstAttribute="centerX" secondItem="o8r-g8-61m" secondAttribute="centerX" type="default" id="aaY-v1-qBE"/>
+                                    <constraint firstItem="1UX-2E-ICj" firstAttribute="centerY" secondItem="o8r-g8-61m" secondAttribute="centerY" type="default" id="cfu-fs-8h0"/>
                                 </constraints>
+                                <size key="customSize" width="106.59999999999999" height="106.59999999999999"/>
                                 <connections>
                                     <outlet property="imageview" destination="1UX-2E-ICj" id="sJc-5G-EYf"/>
                                     <segue destination="NYx-Jq-paN" kind="push" id="IO4-0E-cJT"/>
@@ -1042,7 +1043,7 @@
         <image name="icon_go_foward.png" width="27" height="27"/>
         <image name="images.png" width="23" height="18"/>
         <image name="nekoicon.png" width="16" height="16"/>
-        <image name="setting.png" width="24" height="22"/>
+        <image name="setting.png" width="30" height="30"/>
         <image name="star.png" width="30" height="30"/>
     </resources>
     <classes>
