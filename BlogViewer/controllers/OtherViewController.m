@@ -78,7 +78,6 @@
     } else if (indexPath.row == 1) {
         static NSString *CellIdentifier = @"AppinfoCell";
         AppinfoCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-        cell.appinfo.text = @"ねこログは、ペットやかわいい動物ブログが多い、gooブログの中で、“ねこ”に関するブログの新着情報が閲覧できるアプリです。\n\n厳選したねこブログであなたに癒しを与えます+｡:.ﾟヽ(*´∀`)ﾉﾟ.:｡+ﾟ";
         return cell;
         
     } else if (indexPath.row == 2) {
