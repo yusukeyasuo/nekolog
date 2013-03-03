@@ -241,7 +241,7 @@
     cell.tag = indexPath.row;
     
     NSString *imageurl = [dict objectForKey:@"imageurl"];
-    if (imageurl.length < 5) {
+    if (!imageurl.length) {
         [cell.imageview setImage:[UIImage imageNamed:@"noimage.gif"]];
     } else {
         __block ImageCell *bCell = cell;

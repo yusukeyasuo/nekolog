@@ -263,7 +263,7 @@
     cell.updated.text = datestr;
     
     NSString *imageurl = [dict objectForKey:@"imageurl"];
-    if (imageurl.length < 5) {
+    if (!imageurl.length) {
         [cell.thumbnail setImage:[UIImage imageNamed:@"noimage.gif"]];
         CALayer *layer = [cell.thumbnail layer];
         [layer setMasksToBounds:YES];
@@ -286,6 +286,13 @@
     }
 
     return cell;
+}
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end

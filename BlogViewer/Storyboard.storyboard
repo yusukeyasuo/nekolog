@@ -43,7 +43,7 @@
             </objects>
             <point key="canvasLocation" x="692" y="-1033"/>
         </scene>
-        <!--Items View Controller - 新着-->
+        <!--Items View Controller - ねこログ-->
         <scene sceneID="INM-8f-4Ci">
             <objects>
                 <tableViewController id="U21-xL-f1e" customClass="ItemsViewController" sceneMemberID="viewController">
@@ -116,7 +116,7 @@
                         </prototypes>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="新着" id="HUu-qM-JuA"/>
-                    <navigationItem key="navigationItem" title="新着" id="JJJ-Z4-2hr">
+                    <navigationItem key="navigationItem" title="ねこログ" id="JJJ-Z4-2hr">
                         <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="z8z-Mn-XnR">
                             <connections>
                                 <action selector="pressRefreshButton:" destination="U21-xL-f1e" id="AsK-YX-qU6"/>

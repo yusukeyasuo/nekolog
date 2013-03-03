@@ -229,7 +229,7 @@
     cell.updated.text = datestr;
     
     NSString *imageurl = [dict objectForKey:@"imageurl"];
-    if (imageurl.length < 5) {
+    if (!imageurl.length) {
         [cell.thumbnail setImage:[UIImage imageNamed:@"noimage.gif"]];
         CALayer *layer = [cell.thumbnail layer];
         [layer setMasksToBounds:YES];
@@ -298,13 +298,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
 }
 
 - (IBAction)pressRefreshButton:(id)sender {
