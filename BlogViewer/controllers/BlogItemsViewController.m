@@ -83,7 +83,6 @@
         return;
     }
     NSString *rssstring = [_blogarray[rssnumber] objectForKey:@"rss"];
-    NSLog(@"link: %@", rssstring);
     NSURL *url = [NSURL URLWithString:rssstring];
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
     
@@ -119,7 +118,14 @@
 		_currentdate = [[NSMutableString alloc] init];
 		_currentdescription = [[NSMutableString alloc] init];
 		_currentlink = [[NSMutableString alloc] init];
+        _imageurl = [[NSString alloc] init];
     }
+    if ([elementName isEqualToString:@"enclosure"]) {
+        _imageurl = [attributeDict objectForKey:@"url"];
+        _imageurl = [_imageurl stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        _imageurl = [_imageurl stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+    }
+
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
@@ -147,11 +153,11 @@
                                                                            options:0
                                                                              error:nil];
         NSArray *results = [regexp matchesInString:_currentdescription options:0 range:NSMakeRange(0, _currentdescription.length)];
-        if (results.count > 1) {
+        if (results.count) {
             for (int i = 0; i < results.count; i++) {
                 NSTextCheckingResult *result = [results objectAtIndex:i];
-                NSRange match = [[_currentdescription substringWithRange:[result rangeAtIndex:2]] rangeOfString:@"emoji" options:NSRegularExpressionSearch];
-                if (match.location != NSNotFound) {
+                NSRange match = [[_currentdescription substringWithRange:[result rangeAtIndex:2]] rangeOfString:@"user_image" options:NSRegularExpressionSearch];
+                if (match.location == NSNotFound) {
                 } else {
                     _imageurl = [_currentdescription substringWithRange:[result rangeAtIndex:2]];
                     break;

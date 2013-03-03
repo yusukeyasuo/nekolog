@@ -136,9 +136,15 @@
 		_currentdate = [[NSMutableString alloc] init];
 		_currentdescription = [[NSMutableString alloc] init];
 		_currentlink = [[NSMutableString alloc] init];
+        _imageurl = [[NSString alloc] init];
     }
     if ([elementName isEqualToString:@"image"]) {
         _inimage = YES;
+    }
+    if ([elementName isEqualToString:@"enclosure"]) {
+        _imageurl = [attributeDict objectForKey:@"url"];
+        _imageurl = [_imageurl stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        _imageurl = [_imageurl stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
     }
 }
 
@@ -170,21 +176,20 @@
         [_itemdict setObject:_currenttitle forKey:@"title"];
 		[_itemdict setObject:_currentlink forKey:@"link"];
         
-        
-        
-        
-        NSRegularExpression *regexp = [[NSRegularExpression alloc] initWithPattern:@"(<img.*?src=\")(.*?)(\".*?>)"
-                                                                           options:0
-                                                                             error:nil];
-        NSArray *results = [regexp matchesInString:_currentdescription options:0 range:NSMakeRange(0, _currentdescription.length)];
-        if (results.count > 1) {
-            for (int i = 0; i < results.count; i++) {
-                NSTextCheckingResult *result = [results objectAtIndex:i];
-                NSRange match = [[_currentdescription substringWithRange:[result rangeAtIndex:2]] rangeOfString:@"emoji" options:NSRegularExpressionSearch];
-                if (match.location != NSNotFound) {
-                } else {
-                    _imageurl = [_currentdescription substringWithRange:[result rangeAtIndex:2]];
-                    break;
+        if (!_imageurl.length) {
+            NSRegularExpression *regexp = [[NSRegularExpression alloc] initWithPattern:@"(<img.*?src=\")(.*?)(\".*?>)"
+                                                                               options:0
+                                                                                 error:nil];
+            NSArray *results = [regexp matchesInString:_currentdescription options:0 range:NSMakeRange(0, _currentdescription.length)];
+            if (results.count) {
+                for (int i = 0; i < results.count; i++) {
+                    NSTextCheckingResult *result = [results objectAtIndex:i];
+                    NSRange match = [[_currentdescription substringWithRange:[result rangeAtIndex:2]] rangeOfString:@"user_image" options:NSRegularExpressionSearch];
+                    if (match.location == NSNotFound) {
+                    } else {
+                        _imageurl = [_currentdescription substringWithRange:[result rangeAtIndex:2]];
+                        break;
+                    }
                 }
             }
         }
