@@ -58,7 +58,7 @@
     }
     
     // シェア方法を選択
-    _shareitems = @[@"Twitterに投稿", @"Facebookに投稿", @"Safariで開く", @"お気に入りに登録"];
+    _shareitems = @[@"Twitterに投稿", @"Facebookに投稿", @"Safariで開く"];
     
     _indicator.hidden = NO;
     [_indicator startAnimating];
@@ -115,8 +115,6 @@
     } else if (buttonIndex == 2) {
         NSURL *safari = [NSURL URLWithString:_blogurl];
         [[UIApplication sharedApplication] openURL:safari];
-    } else if (buttonIndex == 3) {
-        [[BlogInfo sharedManager] addFavoritearray:_itemdict];
     }
 }
 
