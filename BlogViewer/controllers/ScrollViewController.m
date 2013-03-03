@@ -31,6 +31,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[GAI sharedInstance].defaultTracker trackView:@"OtherViewController"];
+
     _tableView.scrollEnabled = NO;
     _scrollView.directionalLockEnabled = YES;
     _itemarray = [[BlogInfo sharedManager] getItemarray];

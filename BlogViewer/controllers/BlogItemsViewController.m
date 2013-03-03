@@ -33,6 +33,8 @@
 {
     [super viewDidLoad];
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+    [[GAI sharedInstance].defaultTracker trackView:@"BlogItemViewController"];
+
     _indicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
     [_indicator setCenter:CGPointMake(160.0f, 240.0f)];
     [_indicator setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];

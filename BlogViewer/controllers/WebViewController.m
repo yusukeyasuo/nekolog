@@ -29,6 +29,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[GAI sharedInstance].defaultTracker trackView:@"WebViewController"];
+
     AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     if (![appDelegate checkNetworkAccess])
     {

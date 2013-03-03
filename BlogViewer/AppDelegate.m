@@ -13,6 +13,19 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // Google Analyticsの設定
+    
+    // Exceptionのトラッキングはしない
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    // トラッキング間隔は10秒
+    [GAI sharedInstance].dispatchInterval = 10;
+    // デバック出力はしない
+    [GAI sharedInstance].debug = NO;
+    // 通信にはHTTPSを使用する
+    [[GAI sharedInstance].defaultTracker setUseHttps:YES];
+    // トラッキングIDを設定
+     [[GAI sharedInstance] trackerWithTrackingId:@"UA-38979150-1"];
+    
     return YES;
 }
 

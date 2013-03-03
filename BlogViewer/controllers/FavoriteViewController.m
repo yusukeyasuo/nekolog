@@ -31,6 +31,7 @@
     [super viewDidLoad];
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [[GAI sharedInstance].defaultTracker trackView:@"FavoriteViewController"];
 }
 
 - (void)viewWillAppear:(BOOL)animated

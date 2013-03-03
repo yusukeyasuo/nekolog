@@ -29,7 +29,7 @@
 {
     [super viewDidLoad];
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
-    
+    [[GAI sharedInstance].defaultTracker trackView:@"OtherViewController"];
 }
 
 - (void)didReceiveMemoryWarning
