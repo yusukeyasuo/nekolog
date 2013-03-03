@@ -335,35 +335,47 @@
         <scene sceneID="GyZ-fD-Hwc">
             <objects>
                 <tableViewController id="1NH-1F-XmQ" customClass="OtherViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="88" sectionHeaderHeight="22" sectionFooterHeight="22" id="1YX-ux-EYe">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="1YX-ux-EYe">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ItemCell" rowHeight="85" id="aWg-Xi-FKa" customClass="ItemCell">
-                                <rect key="frame" x="0.0" y="22" width="320" height="85"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ApptitleCell" rowHeight="80" id="gr0-pf-ZP9" customClass="ApptitleCell">
+                                <rect key="frame" x="0.0" y="46" width="320" height="81"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
+                                    <rect key="frame" x="10" y="1" width="300" height="79"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DDC-nN-kan">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="nekoicon.png" translatesAutoresizingMaskIntoConstraints="NO" id="cMg-pb-Tiq">
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="75" id="JCU-Ig-sLY"/>
-                                                <constraint firstAttribute="width" constant="75" id="sL2-Lj-gul"/>
+                                                <constraint firstAttribute="width" constant="60" id="l5Y-mH-J2e"/>
+                                                <constraint firstAttribute="height" constant="60" id="o7l-yp-46a"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Item title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JfO-rC-dFk">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="ねこログ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Se6-7k-laX">
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="pIN-8h-aTq"/>
-                                                <constraint firstAttribute="width" constant="230" id="yDa-Jx-dAO"/>
+                                                <constraint firstAttribute="height" constant="21" id="Nfp-Av-GKj"/>
+                                                <constraint firstAttribute="width" constant="162" id="mKI-Ea-zZP"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Blog title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UtT-wg-NYD">
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="version 1.0.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="piX-Yv-omz">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="NOF-Ny-5qL"/>
+                                                <constraint firstAttribute="width" constant="149" id="av2-hu-3aA"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="(c) NTT Resonant Inc." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aug-VT-zbP">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="dHH-GU-rUI"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
@@ -371,19 +383,58 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="JfO-rC-dFk" firstAttribute="leading" secondItem="aWg-Xi-FKa" secondAttribute="leading" constant="85" id="85d-jB-c1f"/>
-                                    <constraint firstItem="UtT-wg-NYD" firstAttribute="trailing" secondItem="JfO-rC-dFk" secondAttribute="trailing" type="default" id="AV2-7e-SrV"/>
-                                    <constraint firstItem="DDC-nN-kan" firstAttribute="leading" secondItem="aWg-Xi-FKa" secondAttribute="leading" constant="5" id="DtE-tv-9Wj"/>
-                                    <constraint firstItem="DDC-nN-kan" firstAttribute="centerY" secondItem="aWg-Xi-FKa" secondAttribute="centerY" type="default" id="T1R-CK-0a4"/>
-                                    <constraint firstItem="UtT-wg-NYD" firstAttribute="leading" secondItem="JfO-rC-dFk" secondAttribute="leading" type="default" id="etU-vs-19X"/>
-                                    <constraint firstItem="UtT-wg-NYD" firstAttribute="bottom" secondItem="DDC-nN-kan" secondAttribute="bottom" type="default" id="qIi-Ji-ESH"/>
-                                    <constraint firstItem="JfO-rC-dFk" firstAttribute="top" secondItem="DDC-nN-kan" secondAttribute="top" type="default" id="r6K-pl-COL"/>
+                                    <constraint firstItem="piX-Yv-omz" firstAttribute="leading" secondItem="Se6-7k-laX" secondAttribute="leading" type="default" id="6z4-mP-oHf"/>
+                                    <constraint firstItem="Aug-VT-zbP" firstAttribute="bottom" secondItem="cMg-pb-Tiq" secondAttribute="bottom" type="default" id="79b-xN-COi"/>
+                                    <constraint firstItem="Aug-VT-zbP" firstAttribute="trailing" secondItem="piX-Yv-omz" secondAttribute="trailing" type="default" id="JeN-w9-34R"/>
+                                    <constraint firstItem="Aug-VT-zbP" firstAttribute="leading" secondItem="piX-Yv-omz" secondAttribute="leading" type="default" id="Ocu-nr-DUJ"/>
+                                    <constraint firstItem="cMg-pb-Tiq" firstAttribute="leading" secondItem="gr0-pf-ZP9" secondAttribute="leading" constant="15" id="aXA-Md-qfX"/>
+                                    <constraint firstItem="Se6-7k-laX" firstAttribute="leading" secondItem="gr0-pf-ZP9" secondAttribute="leading" constant="93" id="lxq-Ho-4dD"/>
+                                    <constraint firstItem="Se6-7k-laX" firstAttribute="top" secondItem="cMg-pb-Tiq" secondAttribute="top" type="default" id="n8v-WM-MC1"/>
+                                    <constraint firstItem="piX-Yv-omz" firstAttribute="top" secondItem="gr0-pf-ZP9" secondAttribute="top" constant="31" id="s0q-kD-eh4"/>
+                                    <constraint firstItem="piX-Yv-omz" firstAttribute="centerY" secondItem="cMg-pb-Tiq" secondAttribute="centerY" type="default" id="wag-7e-0Q8"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="_blogtitle" destination="UtT-wg-NYD" id="ss2-SV-1Oq"/>
-                                    <outlet property="_itemtitle" destination="JfO-rC-dFk" id="36A-61-9F8"/>
-                                    <outlet property="_thumbnail" destination="DDC-nN-kan" id="4hq-J6-pL6"/>
+                                    <outlet property="_appname" destination="Se6-7k-laX" id="bdu-Wt-DCr"/>
+                                    <outlet property="_copyright" destination="Aug-VT-zbP" id="qK4-80-Qob"/>
+                                    <outlet property="_icon" destination="cMg-pb-Tiq" id="7NT-5a-k0R"/>
+                                    <outlet property="_version" destination="piX-Yv-omz" id="e88-X6-yVZ"/>
                                 </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="AppinfoCell" rowHeight="111" id="fdi-fU-rGU" customClass="AppinfoCell">
+                                <rect key="frame" x="0.0" y="127" width="320" height="111"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="10" y="0.0" width="300" height="110"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="283" translatesAutoresizingMaskIntoConstraints="NO" id="XZC-DZ-2iZ">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="283" id="sSH-5s-9T2"/>
+                                                <constraint firstAttribute="height" constant="99" id="u0E-Cj-vNh"/>
+                                            </constraints>
+                                            <string key="text">ねこログは、ペットやかわいい動物ブログが多い、gooブログの中で、“ねこ”に関するブログの新着情報が閲覧できるアプリです。
+
+厳選したねこブログであなたに癒しを与えます+｡:.ﾟヽ(*´∀`)ﾉﾟ.:｡+ﾟ</string>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="XZC-DZ-2iZ" firstAttribute="top" secondItem="fdi-fU-rGU" secondAttribute="top" constant="5" id="Lwc-Ar-gLZ"/>
+                                    <constraint firstItem="XZC-DZ-2iZ" firstAttribute="centerX" secondItem="fdi-fU-rGU" secondAttribute="centerX" type="default" id="lDf-nD-Buo"/>
+                                </constraints>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" id="aIB-0l-fHx">
+                                <rect key="frame" x="0.0" y="238" width="320" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="10" y="0.0" width="280" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
                             </tableViewCell>
                         </prototypes>
                     </tableView>
@@ -486,7 +537,7 @@
                                     <constraint firstAttribute="height" constant="184" id="wqX-bD-qQy"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" rowHeight="163" id="Ujz-Ck-Pm8" customClass="ScrollCell">
+                                    <tableViewCell autoresizesSubviews="NO" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" rowHeight="163" id="Ujz-Ck-Pm8" customClass="ScrollCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="163"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -990,106 +1041,10 @@
         <image name="icon_go_back.png" width="27" height="27"/>
         <image name="icon_go_foward.png" width="27" height="27"/>
         <image name="images.png" width="23" height="18"/>
+        <image name="nekoicon.png" width="16" height="16"/>
         <image name="setting.png" width="24" height="22"/>
         <image name="star.png" width="32" height="32"/>
     </resources>
-    <classes>
-        <class className="BlogCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BlogCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="_blogtitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="_thumbnail" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="_updated" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="BlogItemsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BlogItemsViewController.h"/>
-        </class>
-        <class className="BlogsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BlogsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="pressRefreshButton:"/>
-            </relationships>
-        </class>
-        <class className="FavoriteViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavoriteViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="_editbutton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="ImageCell" superclassName="UICollectionViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ImageCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="imageview" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="ImagesViewController" superclassName="UICollectionViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ImagesViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="pressRefreshButton:"/>
-            </relationships>
-        </class>
-        <class className="ItemCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ItemCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="_blogtitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="_itemtitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="_thumbnail" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="_updated" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ItemsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ItemsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="pressRefreshButton:"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="OtherViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OtherViewController.h"/>
-        </class>
-        <class className="ScrollCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ScrollCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="_blogLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="_dateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="_itemLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ScrollViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ScrollViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="_scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="_tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="UICollectionReusableView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
-        </class>
-        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
-        </class>
-        <class className="UICollectionViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewController.h"/>
-        </class>
-        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="WebViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/WebViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="pressFavoriteButton:"/>
-                <relationship kind="outlet" name="_favoritebutton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="_gobackbutton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="_goforwardbutton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="_indicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="_refreshbutton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="_webview" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -16,6 +16,8 @@
 			<array>
 				<string>nekolog.png</string>
 				<string>nekoicon.png</string>
+				<string>icon.png</string>
+				<string>icon@2x.png</string>
 			</array>
 		</dict>
 	</dict>

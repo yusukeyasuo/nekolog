@@ -7,6 +7,9 @@
 //
 
 #import "OtherViewController.h"
+#import "ApptitleCell.h"
+#import "AppinfoCell.h"
+#import "TextCell.h"
 
 @interface OtherViewController ()
 
@@ -41,21 +44,56 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return 4;
+}
+
+- (float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 0) {
+        return 80.0f;
+    } else if (indexPath.row == 1) {
+        return 111.0f;
+    } else {
+        return 44.0f;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    
-    return cell;
+    if (indexPath.row == 0) {
+        static NSString *CellIdentifier = @"ApptitleCell";
+        ApptitleCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        cell.icon.image = [UIImage imageNamed:@"nekoicon.png"];
+        cell.icon.layer.cornerRadius = 8.0;
+        cell.icon.clipsToBounds = YES;
+        cell.appname.text = @"ねこログ";
+        cell.version.text = @"version 1.0.0";
+        cell.copyright.text = @"(c) NTT Resonant Inc.";
+        return cell;
+    } else if (indexPath.row == 1) {
+        static NSString *CellIdentifier = @"AppinfoCell";
+        AppinfoCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        cell.appinfo.text = @"ねこログは、ペットやかわいい動物ブログが多い、gooブログの中で、“ねこ”に関するブログの新着情報が閲覧できるアプリです。\n\n厳選したねこブログであなたに癒しを与えます+｡:.ﾟヽ(*´∀`)ﾉﾟ.:｡+ﾟ";
+        return cell;
+        
+    } else if (indexPath.row == 2) {
+        static NSString *CellIdentifier = @"Cell";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        cell.textLabel.adjustsFontSizeToFitWidth = YES;
+        cell.textLabel.text = @"ねこ好きの方必見のFacebookページ";
+        return cell;
+    } else {
+        static NSString *CellIdentifier = @"Cell";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        cell.textLabel.adjustsFontSizeToFitWidth = YES;
+        cell.textLabel.text = @"gooブログ公式投稿アプリ";
+        return cell;
+    }
 }
 
 /*
@@ -102,13 +140,14 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    if (indexPath.row == 2) { // facebook
+        if (![[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"fb://profile/204845989642548"]]) {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.facebook.com/blog.goo.ne.jp"]];
+        }
+    } else if (indexPath.row == 3) { // gooblog app
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/jp/app/gooburogu/id543105971"]];
+    }
+    
 }
 
 @end

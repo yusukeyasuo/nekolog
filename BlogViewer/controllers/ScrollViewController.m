@@ -32,6 +32,7 @@
 {
     [super viewDidLoad];
     _tableView.scrollEnabled = NO;
+    _scrollView.directionalLockEnabled = YES;
     _itemarray = [[BlogInfo sharedManager] getItemarray];
     _imageviewarray = [[NSMutableArray alloc] init];
     CGRect rect = CGRectMake(0, 0, 320.0f, 320.0f);
@@ -42,9 +43,9 @@
         
         NSDictionary *dict = _itemarray[i];
         NSString *imageurl = [dict objectForKey:@"imageurl"];
-        UIImageView *imageview = [[UIImageView alloc] initWithFrame:rect];
-        UIImageView *to_left = [[UIImageView alloc] initWithFrame:CGRectMake(5.0f, 140.0f, 40.0f, 40.0f)];
-        UIImageView *to_right = [[UIImageView alloc] initWithFrame:CGRectMake(275.0f, 140.0f, 40.0f, 40.0f)];
+        imageview = [[UIImageView alloc] initWithFrame:rect];
+        to_left = [[UIImageView alloc] initWithFrame:CGRectMake(5.0f, 140.0f, 40.0f, 40.0f)];
+        to_right = [[UIImageView alloc] initWithFrame:CGRectMake(275.0f, 140.0f, 40.0f, 40.0f)];
         imageview.contentMode = UIViewContentModeScaleAspectFit;
         if (imageurl.length < 5) {
             [imageview setImage:[UIImage imageNamed:@"noimage.gif"]];
@@ -74,9 +75,19 @@
             to_right.alpha = 0.5;
             [imageview addSubview:to_right];
         }
+        /*
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:0.75];
+        [UIView setAnimationDelay:2.0];
+        [to_left setAlpha:0.0];
+        [to_right setAlpha:0.0];
+        [UIView commitAnimations];
+        */
+        
         [_imageviewarray addObject:imageview];
         _scrollView.contentSize = CGSizeMake(rect.size.width * [_itemarray count], rect.size.height);
         _scrollView.pagingEnabled = YES;
+
     }
     _scrollView.contentOffset = CGPointMake(320.0 * _selected, 0);
     _item = [_itemarray[_selected] objectForKey:@"title"];
@@ -144,6 +155,27 @@
     [formatter setDateFormat:@"MM/dd HH:mm"];
     _date = [formatter stringFromDate:date];
     [_tableView reloadData];
+    
+    /*
+    to_left = [[UIImageView alloc] initWithFrame:CGRectMake(5.0f, 140.0f, 40.0f, 40.0f)];
+    to_right = [[UIImageView alloc] initWithFrame:CGRectMake(275.0f, 140.0f, 40.0f, 40.0f)];
+    if (_selected != 0) {
+        [to_left setImage:[UIImage imageNamed:@"to_left.png"]];
+        to_left.alpha = 0.5;
+        [imageview addSubview:to_left];
+    }
+    if (_selected != _itemarray.count - 1) {
+        [to_right setImage:[UIImage imageNamed:@"to_right.png"]];
+        to_right.alpha = 0.5;
+        [imageview addSubview:to_right];
+    }
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.75];
+    [UIView setAnimationDelay:0.0];
+    [to_left setAlpha:0.0];
+    [to_right setAlpha:0.0];
+    [UIView commitAnimations];
+    */
 }
 
 @end
