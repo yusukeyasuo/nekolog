@@ -78,21 +78,15 @@
     
     to_left = [[UIButton alloc] initWithFrame:CGRectMake(5.0f, 140.0f, 40.0f, 40.0f)];
     to_right = [[UIButton alloc] initWithFrame:CGRectMake(275.0f, 140.0f, 40.0f, 40.0f)];
-    if (_selected != 0) {
-        [to_left setBackgroundImage:[UIImage imageNamed:@"to_left.png"] forState:UIControlStateNormal];
-        [to_left addTarget:self
-                    action:@selector(to_left:) forControlEvents:UIControlEventTouchUpInside];
-        
-        to_left.enabled = YES;
-        [self.view addSubview:to_left];
-    }
-    if (_selected != _itemarray.count - 1) {
-        [to_right setBackgroundImage:[UIImage imageNamed:@"to_right.png"] forState:UIControlStateNormal];
-        [to_right addTarget:self
-                     action:@selector(to_right:) forControlEvents:UIControlEventTouchUpInside];
-        to_right.enabled = YES;
-        [self.view addSubview:to_right];
-    }
+    [to_left setBackgroundImage:[UIImage imageNamed:@"to_left.png"] forState:UIControlStateNormal];
+    [to_left addTarget:self
+                action:@selector(to_left:) forControlEvents:UIControlEventTouchUpInside];
+    [to_right setBackgroundImage:[UIImage imageNamed:@"to_right.png"] forState:UIControlStateNormal];
+    [to_right addTarget:self
+                action:@selector(to_right:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:to_left];
+    [self.view addSubview:to_right];
     [self hiddenButton];
     
     _item = [_itemarray[_selected] objectForKey:@"title"];
@@ -119,29 +113,46 @@
 
 - (void)to_left:(UIButton *)button
 {
-    NSLog(@"to_left");
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.3];
     [UIView setAnimationDelay:0.0];
     _scrollView.contentOffset = CGPointMake(_scrollView.contentOffset.x - 320, 0);
     [UIView commitAnimations];
+    _selected = _scrollView.contentOffset.x / _scrollView.frame.size.width;
     [self hiddenButton];
 }
 
 - (void)to_right:(UIButton *)button
 {
-    NSLog(@"to_right");
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.3];
     [UIView setAnimationDelay:0.0];
     _scrollView.contentOffset = CGPointMake(_scrollView.contentOffset.x + 320, 0);
     [UIView commitAnimations];
+    _selected = _scrollView.contentOffset.x / _scrollView.frame.size.width;
     [self hiddenButton];
 }
 
 - (void)hiddenButton {
-    [to_left setAlpha:0.7];
-    [to_right setAlpha:0.7];
+    if (_selected == 0) {
+        [to_left setAlpha:0.02];
+    } else {
+        [to_left setAlpha:0.7];
+    }
+    if (_selected == (_itemarray.count - 1)) {
+        [to_right setAlpha:0.02];
+    } else {
+        [to_right setAlpha:0.7];
+    }
+    
+    _item = [_itemarray[_selected] objectForKey:@"title"];
+    _blog = [_itemarray[_selected] objectForKey:@"blog"];
+    NSDate *date = [_itemarray[_selected] objectForKey:@"date"];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MM/dd HH:mm"];
+    _date = [formatter stringFromDate:date];
+    [_tableView reloadData];
+    
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.75];
     [UIView setAnimationDelay:1.0];
@@ -186,14 +197,6 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     _selected = _scrollView.contentOffset.x / _scrollView.frame.size.width;
-    _item = [_itemarray[_selected] objectForKey:@"title"];
-    _blog = [_itemarray[_selected] objectForKey:@"blog"];
-    NSDate *date = [_itemarray[_selected] objectForKey:@"date"];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"MM/dd HH:mm"];
-    _date = [formatter stringFromDate:date];
-    [_tableView reloadData];
-    
     [self hiddenButton];
 }
 
