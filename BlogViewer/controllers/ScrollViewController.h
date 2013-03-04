@@ -13,8 +13,10 @@
     IBOutlet UITableView *_tableView;
     IBOutlet UIScrollView *_scrollView;
     UIImageView *imageview;
-    UIImageView *to_left;
-    UIImageView *to_right;
+    //UIImageView *to_left;
+    //UIImageView *to_right;
+    UIButton *to_left;
+    UIButton *to_right;
     
     NSArray *_itemarray;
     NSArray *_imagearray;

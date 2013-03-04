@@ -30,7 +30,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [[BlogInfo sharedManager] load];
+    if (![[BlogInfo sharedManager] getItemarray]) {
+        [[BlogInfo sharedManager] load];
+    }
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     [[GAI sharedInstance].defaultTracker trackView:@"ItemViewController"];
     

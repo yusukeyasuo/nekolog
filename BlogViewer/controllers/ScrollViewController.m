@@ -46,10 +46,10 @@
         NSDictionary *dict = _itemarray[i];
         NSString *imageurl = [dict objectForKey:@"imageurl"];
         imageview = [[UIImageView alloc] initWithFrame:rect];
-        to_left = [[UIImageView alloc] initWithFrame:CGRectMake(5.0f, 140.0f, 40.0f, 40.0f)];
-        to_right = [[UIImageView alloc] initWithFrame:CGRectMake(275.0f, 140.0f, 40.0f, 40.0f)];
+        to_left = [[UIButton alloc] initWithFrame:CGRectMake(5.0f, 140.0f, 40.0f, 40.0f)];
+        to_right = [[UIButton alloc] initWithFrame:CGRectMake(275.0f, 140.0f, 40.0f, 40.0f)];
         imageview.contentMode = UIViewContentModeScaleAspectFit;
-        if (imageurl.length < 5) {
+        if (!imageurl.length) {
             [imageview setImage:[UIImage imageNamed:@"noimage.gif"]];
         } else {
             if ([[BlogInfo sharedManager] getImageCache:[dict objectForKey:@"imageurl"]] != nil) {
@@ -68,14 +68,21 @@
 
         [_scrollView addSubview:imageview];
         if (i != 0) {
-            [to_left setImage:[UIImage imageNamed:@"to_left.png"]];
-            to_left.alpha = 0.5;
-            [imageview addSubview:to_left];
+            [to_left setBackgroundImage:[UIImage imageNamed:@"to_left.png"] forState:UIControlStateNormal];
+            [to_left addTarget:self
+                        action:@selector(to_left:) forControlEvents:UIControlEventTouchUpInside];
+
+            to_left.alpha = 0.6;
+            to_left.enabled = YES;
+            [self.view addSubview:to_left];
         }
         if (i != _itemarray.count - 1) {
-            [to_right setImage:[UIImage imageNamed:@"to_right.png"]];
-            to_right.alpha = 0.5;
-            [imageview addSubview:to_right];
+            [to_right setBackgroundImage:[UIImage imageNamed:@"to_right.png"] forState:UIControlStateNormal];
+            [to_right addTarget:self
+                         action:@selector(to_right:) forControlEvents:UIControlEventTouchUpInside];
+            to_right.alpha = 0.6;
+            to_right.enabled = YES;
+            [self.view addSubview:to_right];
         }
         /*
         [UIView beginAnimations:nil context:NULL];
@@ -112,6 +119,26 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)to_left:(UIButton *)button
+{
+    NSLog(@"to_left");
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.3];
+    [UIView setAnimationDelay:0.0];
+    _scrollView.contentOffset = CGPointMake(_scrollView.contentOffset.x - 320, 0);
+    [UIView commitAnimations];
+}
+
+- (void)to_right:(UIButton *)button
+{
+    NSLog(@"to_right");
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.3];
+    [UIView setAnimationDelay:0.0];
+    _scrollView.contentOffset = CGPointMake(_scrollView.contentOffset.x + 320, 0);
+    [UIView commitAnimations];
 }
 
 
