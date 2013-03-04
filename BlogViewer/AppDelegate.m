@@ -26,6 +26,7 @@
     // トラッキングIDを設定
      [[GAI sharedInstance] trackerWithTrackingId:@"UA-38979150-1"];
     
+    sleep(1);
     return YES;
 }
 

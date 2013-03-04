@@ -113,7 +113,6 @@
         [self presentViewController:slComposeViewController animated:YES completion:nil];
     } else if (buttonIndex == 1) {
         SLComposeViewController *slComposeViewController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-        [slComposeViewController setInitialText:sharestr];
         [slComposeViewController addURL:[NSURL URLWithString:_blogurl]];
         [self presentViewController:slComposeViewController animated:YES completion:nil];
     } else if (buttonIndex == 2) {

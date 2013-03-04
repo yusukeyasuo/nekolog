@@ -85,7 +85,7 @@
         static NSString *CellIdentifier = @"Cell";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
         cell.textLabel.adjustsFontSizeToFitWidth = YES;
-        cell.textLabel.text = @"ねこ好きの方必見のFacebookページ";
+        cell.textLabel.text = @"ねこ好き必見のFacebookページ";
         return cell;
     } else {
         static NSString *CellIdentifier = @"Cell";
