@@ -38,7 +38,6 @@
     _tableView.scrollEnabled = NO;
     _scrollView.directionalLockEnabled = YES;
     _itemarray = [[BlogInfo sharedManager] getItemarray];
-    _imageviewarray = [[NSMutableArray alloc] init];
     CGRect rect = CGRectMake(0, 0, 320.0f, 320.0f);
     
     for (NSInteger i = 0; i < _itemarray.count; i ++)
@@ -49,8 +48,10 @@
         NSString *imageurl = [dict objectForKey:@"imageurl"];
         imageview = [[UIImageView alloc] initWithFrame:rect];
         imageview.contentMode = UIViewContentModeScaleAspectFit;
+        UIImage *image = [[UIImage alloc] init];
         if (!imageurl.length) {
-            [imageview setImage:[UIImage imageNamed:@"noimage.gif"]];
+            image = [UIImage imageNamed:@"noimage.gif"];
+            [imageview setImage:image];
         } else {
             if ([[BlogInfo sharedManager] getImageCache:[dict objectForKey:@"imageurl"]] != nil) {
                 [imageview setImage:[[BlogInfo sharedManager] getImageCache:[dict objectForKey:@"imageurl"]]];
@@ -68,8 +69,6 @@
 
         [_scrollView addSubview:imageview];
         
-        
-        [_imageviewarray addObject:imageview];
         _scrollView.contentSize = CGSizeMake(rect.size.width * [_itemarray count], rect.size.height);
         _scrollView.pagingEnabled = YES;
 
@@ -161,6 +160,28 @@
     [UIView commitAnimations];
 }
 
+- (IBAction)pressSaveButton:(id)sender
+{
+    UIImageWriteToSavedPhotosAlbum(
+                                   [[BlogInfo sharedManager] getImageCache:[_itemarray[_selected] objectForKey:@"imageurl"]], self,
+                                   //[UIImage imageNamed:@"noimage.gif"], self,
+                                   @selector(savingImageIsFinished:didFinishSavingWithError:contextInfo:), nil);
+}
+
+-(void)savingImageIsFinished:(UIImage*)image
+    didFinishSavingWithError:(NSError*)error contextInfo:(void*)contextInfo
+{
+    if (!error)
+    {
+        [[[UIAlertView alloc] initWithTitle:nil
+                                    message:@"フォトアルバムに保存しました"
+                                   delegate:nil
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil] show];
+    } else {
+        NSLog(@"error");
+    }
+}
 
 #pragma mark - Table view data source
 

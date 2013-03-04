@@ -13,14 +13,10 @@
     IBOutlet UITableView *_tableView;
     IBOutlet UIScrollView *_scrollView;
     UIImageView *imageview;
-    //UIImageView *to_left;
-    //UIImageView *to_right;
     UIButton *to_left;
     UIButton *to_right;
     
     NSArray *_itemarray;
-    NSArray *_imagearray;
-    NSMutableArray *_imageviewarray;
     NSInteger _selected;
     NSString *_item;
     NSString *_blog;
@@ -28,5 +24,7 @@
 }
 
 @property (nonatomic) NSInteger selected;
+
+- (IBAction)pressSaveButton:(id)sender;
 
 @end
