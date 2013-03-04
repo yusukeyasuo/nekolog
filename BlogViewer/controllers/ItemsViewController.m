@@ -163,7 +163,7 @@
         } else {
             [_currenttitle appendString:string];
         }
-    } else if ([_currentelement isEqualToString:@"link"]) {
+    } else if ([_currentelement isEqualToString:@"link"] && _initem) {
         [_currentlink appendString:string];
     } else if ([_currentelement isEqualToString:@"description"]) {
         [_currentdescription appendString:string];
@@ -215,8 +215,6 @@
 
 - (void)parserDidEndDocument:(NSXMLParser *)parser
 {
-    NSLog(@"no: %d", _rssno);
-    
     if (++_rssno == _rssarray.count) {
         NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:FALSE];
         [_itemarray sortUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];

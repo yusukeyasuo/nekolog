@@ -157,7 +157,7 @@
         } else {
             [_currenttitle appendString:string];
         }
-    } else if ([_currentelement isEqualToString:@"link"]) {
+    } else if ([_currentelement isEqualToString:@"link"] && _initem) {
         [_currentlink appendString:string];
     } else if ([_currentelement isEqualToString:@"description"]) {
         [_currentdescription appendString:string];
