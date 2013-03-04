@@ -215,6 +215,8 @@
 
 - (void)parserDidEndDocument:(NSXMLParser *)parser
 {
+    NSLog(@"no: %d", _rssno);
+    
     if (++_rssno == _rssarray.count) {
         NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:FALSE];
         [_itemarray sortUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];

@@ -36,7 +36,8 @@ static BlogInfo *_sharedInstance = nil;
 - (void)getRssArraywithCompletion:(void(^)(NSArray *responceObject, NSError *error))completion
 {
     //NSString *urlStr = @"http://133.242.129.55/work/blog.php";
-    NSString *urlStr = @"http://blg615.goo.ne.jp/nekolog.php";
+    //NSString *urlStr = @"http://blg615.goo.ne.jp/nekolog.php";
+    NSString *urlStr = @"http://blg615.goo.ne.jp/sp_recommend_blog/cat";
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlStr]
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                        timeoutInterval:10.0f];
@@ -161,10 +162,12 @@ static BlogInfo *_sharedInstance = nil;
     [NSKeyedArchiver archiveRootObject:_favoritearray toFile:_favoritearray_filePath];
     
     // imagecache
+    /*
     _imagecache_paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     _imagecache_directory = [_imagecache_paths objectAtIndex:0];
     _imagecache_filePath = [_imagecache_directory stringByAppendingPathComponent:@"imagecache_data.dat"];
     [NSKeyedArchiver archiveRootObject:_imageCache toFile:_imagecache_filePath];
+    */
 }
 
 - (void)load
@@ -188,10 +191,12 @@ static BlogInfo *_sharedInstance = nil;
     _favoritearray = [NSKeyedUnarchiver unarchiveObjectWithFile:_favoritearray_filePath];
     
     // imagecache
+    /*
     _imagecache_paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     _imagecache_directory = [_imagecache_paths objectAtIndex:0];
     _imagecache_filePath = [_imagecache_directory stringByAppendingPathComponent:@"imagecache_data.dat"];
     _imageCache = [NSKeyedUnarchiver unarchiveObjectWithFile:_imagecache_filePath];
+    */
 }
 
 @end
