@@ -31,6 +31,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationController.navigationBar.tintColor = [UIColor darkGrayColor];
+    self.navigationController.navigationBar.translucent = YES;
     [[GAI sharedInstance].defaultTracker trackView:@"OtherViewController"];
 
     _tableView.scrollEnabled = NO;

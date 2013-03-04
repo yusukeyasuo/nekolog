@@ -30,8 +30,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
-    self.tableView.separatorColor = [UIColor colorWithRed:0.79 green:0.79 blue:0.79 alpha:1];
+    self.navigationController.navigationBar.tintColor = [UIColor darkGrayColor];
+    self.navigationController.navigationBar.translucent = YES;
     [[GAI sharedInstance].defaultTracker trackView:@"BlogViewController"];
     
     _indicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
