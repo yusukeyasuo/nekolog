@@ -31,7 +31,9 @@
     [super viewDidLoad];
     self.navigationController.navigationBar.tintColor = [UIColor darkGrayColor];
     self.navigationController.navigationBar.translucent = YES;
-    [[GAI sharedInstance].defaultTracker trackView:@"WebViewController"];
+    NSString *gaStr = [NSString stringWithFormat:@"WebViewController|%@", [_itemdict objectForKey:@"link"]];
+    NSLog(@"gaStr: %@", gaStr);
+    [[GAI sharedInstance].defaultTracker trackView:gaStr];
 
     AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     if (![appDelegate checkNetworkAccess])
