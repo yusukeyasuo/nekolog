@@ -198,6 +198,7 @@
                 }
             }
         }
+        _imageurl = [NSString stringWithFormat:@"%@?dw=320,dh=320,cw=320,ch=320,q=70,da=s,ds=s", _imageurl];
 		[_itemdict setObject:_imageurl forKey:@"imageurl"];
         
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];

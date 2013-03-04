@@ -139,6 +139,7 @@
         [_blogdict setObject:_currentblog forKey:@"blog"];
         NSString *imagestr = [_currentimage stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         imagestr = [imagestr stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+        imagestr = [NSString stringWithFormat:@"%@?dw=60,dh=60,cw=60,ch=60,q=50,da=s,ds=s", imagestr];
         [_blogdict setObject:imagestr forKey:@"imageurl"];
         
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];

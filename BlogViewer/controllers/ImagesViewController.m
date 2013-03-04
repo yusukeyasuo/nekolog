@@ -37,7 +37,7 @@
 
     _indicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
     [_indicator setCenter:CGPointMake(160.0f, 240.0f)];
-    [_indicator setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];
+    [_indicator setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhite];
     [self.view addSubview:_indicator];
     [self.view bringSubviewToFront:_indicator];
     _indicator.hidden = YES;
@@ -189,6 +189,7 @@
                 }
             }
         }
+        _imageurl = [NSString stringWithFormat:@"%@?dw=320,dh=320,cw=320,ch=320,q=80,da=s,ds=s", _imageurl];
 		[_itemdict setObject:_imageurl forKey:@"imageurl"];
         
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
