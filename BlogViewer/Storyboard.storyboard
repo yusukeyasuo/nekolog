@@ -191,9 +191,6 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="iH9-v9-gj9"/>
                             <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M3Z-v5-mX7">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="332" id="hW7-41-oeO"/>
-                                </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="uU7-SA-cjO" id="Ma9-mX-gh1"/>
                                 </connections>
@@ -204,6 +201,7 @@
                             <constraint firstItem="uVb-th-A0E" firstAttribute="leading" secondItem="PaI-1i-BC4" secondAttribute="leading" type="default" id="7m4-xW-aZL"/>
                             <constraint firstItem="uVb-th-A0E" firstAttribute="trailing" secondItem="PaI-1i-BC4" secondAttribute="trailing" type="default" id="ARq-2i-DMx"/>
                             <constraint firstItem="iH9-v9-gj9" firstAttribute="centerY" secondItem="PaI-1i-BC4" secondAttribute="centerY" type="default" id="NgS-14-Igv"/>
+                            <constraint firstItem="M3Z-v5-mX7" firstAttribute="trailing" secondItem="PaI-1i-BC4" secondAttribute="trailing" type="default" id="Oyf-gY-hMh"/>
                             <constraint firstItem="M3Z-v5-mX7" firstAttribute="top" secondItem="PaI-1i-BC4" secondAttribute="top" type="default" id="RRH-hx-JYu"/>
                             <constraint firstItem="M3Z-v5-mX7" firstAttribute="leading" secondItem="PaI-1i-BC4" secondAttribute="leading" type="default" id="UZi-9a-BPS"/>
                             <constraint firstItem="iH9-v9-gj9" firstAttribute="centerX" secondItem="uVb-th-A0E" secondAttribute="centerX" type="default" id="kmi-UV-Bi1"/>
@@ -412,7 +410,7 @@
                                                 <constraint firstAttribute="width" constant="283" id="qpl-Qe-2hp"/>
                                                 <constraint firstAttribute="height" constant="99" id="u0E-Cj-vNh"/>
                                             </constraints>
-                                            <string key="text">「ねこログ」は、gooブログのねこブログを集めたリーダーアプリです。新着順や画像覧でかわいいねこを閲覧できます。
+                                            <string key="text">「ねこログ」は、gooブログのねこブログを集めたリーダーアプリです。新着順や画像一覧でかわいいねこを閲覧できます。
 
 厳選したねこブログであなたに癒しを与えます+｡:.ﾟヽ(*´∀`)ﾉﾟ.:｡+ﾟ</string>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -445,11 +443,11 @@
             </objects>
             <point key="canvasLocation" x="1115" y="999"/>
         </scene>
-        <!--Navigation Controller - 画像-->
+        <!--Navigation Controller - ねこ画像-->
         <scene sceneID="KvX-bx-iOt">
             <objects>
                 <navigationController definesPresentationContext="YES" id="rCU-pb-5hA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="画像" image="images.png" id="wVC-g5-IXC"/>
+                    <tabBarItem key="tabBarItem" title="ねこ画像" image="images.png" id="wVC-g5-IXC"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="QRS-qS-khM">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -841,9 +839,6 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="zdC-EA-zBJ"/>
                             <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uNr-yM-GXt">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="332" id="ben-8Q-Ryj"/>
-                                </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="8UX-iR-4ST" id="gxK-T3-jcb"/>
                                 </connections>
@@ -851,6 +846,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="uNr-yM-GXt" firstAttribute="trailing" secondItem="Jq2-lo-SUq" secondAttribute="trailing" type="default" id="A0U-Nf-xg6"/>
                             <constraint firstItem="TEz-ew-Nsz" firstAttribute="leading" secondItem="Jq2-lo-SUq" secondAttribute="leading" type="default" id="Jb6-mB-GZ1"/>
                             <constraint firstItem="uNr-yM-GXt" firstAttribute="leading" secondItem="Jq2-lo-SUq" secondAttribute="leading" type="default" id="MFV-3Y-Cg8"/>
                             <constraint firstItem="TEz-ew-Nsz" firstAttribute="bottom" secondItem="Jq2-lo-SUq" secondAttribute="bottom" type="default" id="R1K-8d-dhh"/>
@@ -923,9 +919,6 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="1iA-fg-zSr"/>
                             <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MUp-cD-8cZ">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="332" id="80q-XI-EFF"/>
-                                </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="uUp-zH-Urv" id="WLJ-g5-PQE"/>
                                 </connections>
@@ -933,6 +926,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="MUp-cD-8cZ" firstAttribute="trailing" secondItem="Hiv-vF-rgV" secondAttribute="trailing" type="default" id="A1g-EJ-LcN"/>
                             <constraint firstItem="OzR-AD-mU5" firstAttribute="top" secondItem="MUp-cD-8cZ" secondAttribute="bottom" type="default" id="AuK-6g-Jmv"/>
                             <constraint firstItem="MUp-cD-8cZ" firstAttribute="leading" secondItem="Hiv-vF-rgV" secondAttribute="leading" type="default" id="GVm-ai-aad"/>
                             <constraint firstItem="1iA-fg-zSr" firstAttribute="centerY" secondItem="Hiv-vF-rgV" secondAttribute="centerY" type="default" id="U4f-kp-2Cf"/>
@@ -1005,9 +999,6 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="2cj-aC-Te5"/>
                             <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kfQ-5r-N9E">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="332" id="kRZ-N4-7Bn"/>
-                                </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="CSu-St-mMQ" id="1fe-Z0-v2a"/>
                                 </connections>
@@ -1023,6 +1014,7 @@
                             <constraint firstItem="2cj-aC-Te5" firstAttribute="centerX" secondItem="rer-Hz-qg4" secondAttribute="centerX" type="default" id="oFK-zH-aOJ"/>
                             <constraint firstItem="2cj-aC-Te5" firstAttribute="centerY" secondItem="cKR-mx-Vp1" secondAttribute="centerY" type="default" id="qfk-jo-pjt"/>
                             <constraint firstItem="rer-Hz-qg4" firstAttribute="leading" secondItem="cKR-mx-Vp1" secondAttribute="leading" type="default" id="qqx-us-bqr"/>
+                            <constraint firstItem="kfQ-5r-N9E" firstAttribute="trailing" secondItem="cKR-mx-Vp1" secondAttribute="trailing" type="default" id="tSd-2t-wkv"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Wnf-Rg-lj4"/>
@@ -1151,9 +1143,6 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
         <class className="WebViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/WebViewController.h"/>

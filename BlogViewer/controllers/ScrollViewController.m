@@ -48,6 +48,9 @@
         NSString *imageurl = [dict objectForKey:@"imageurl"];
         imageview = [[UIImageView alloc] initWithFrame:rect];
         imageview.contentMode = UIViewContentModeScaleAspectFit;
+        imageview.userInteractionEnabled = YES;
+        [imageview addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchImageView)]];
+        [imageview addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longTouchImageView:)]];
         UIImage *image = [[UIImage alloc] init];
         if (!imageurl.length) {
             image = [UIImage imageNamed:@"noimage.gif"];
@@ -95,6 +98,23 @@
     [formatter setDateFormat:@"MM/dd HH:mm"];
     _date = [formatter stringFromDate:date];
     [_tableView reloadData];
+}
+
+- (void)touchImageView
+{
+    [self hiddenButton];
+}
+
+- (void)longTouchImageView:(UILongPressGestureRecognizer *)sender
+{
+    _actionsheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
+    [_actionsheet addButtonWithTitle:@"保存する"];
+    _actionsheet.cancelButtonIndex = [_actionsheet addButtonWithTitle:@"キャンセル"];
+    
+    if ([sender state] == UIGestureRecognizerStateBegan) {
+        [_actionsheet showInView:self.view];
+    } else if ([sender state] == UIGestureRecognizerStateEnded) {
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -162,9 +182,13 @@
 
 - (IBAction)pressSaveButton:(id)sender
 {
+    [self savePhoto];
+}
+
+- (void)savePhoto
+{
     UIImageWriteToSavedPhotosAlbum(
                                    [[BlogInfo sharedManager] getImageCache:[_itemarray[_selected] objectForKey:@"imageurl"]], self,
-                                   //[UIImage imageNamed:@"noimage.gif"], self,
                                    @selector(savingImageIsFinished:didFinishSavingWithError:contextInfo:), nil);
 }
 
@@ -180,6 +204,20 @@
                           otherButtonTitles:nil] show];
     } else {
         NSLog(@"error");
+    }
+}
+
+#pragma mark - ActionSheet delegate
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch (buttonIndex) {
+        case 0:
+            [self savePhoto];
+            break;
+            
+        default:
+            break;
     }
 }
 

@@ -8,13 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ScrollViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
+@interface ScrollViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, UIActionSheetDelegate>
 {
     IBOutlet UITableView *_tableView;
     IBOutlet UIScrollView *_scrollView;
     UIImageView *imageview;
     UIButton *to_left;
     UIButton *to_right;
+    UIActionSheet *_actionsheet;
+
     
     NSArray *_itemarray;
     NSInteger _selected;

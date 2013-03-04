@@ -31,27 +31,27 @@
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
-    NSLog(@"WillResignActive");
+    //NSLog(@"WillResignActive");
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    NSLog(@"DidEnterBackground");
+    //NSLog(@"DidEnterBackground");
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    NSLog(@"WillEnterForground");
+    //NSLog(@"WillEnterForground");
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    NSLog(@"DidBecomeActive");
+    //NSLog(@"DidBecomeActive");
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    NSLog(@"WillTerminate");
+    //NSLog(@"WillTerminate");
 }
 
 // NW接続状況の確認
