@@ -186,8 +186,8 @@
 - (void)parserDidEndDocument:(NSXMLParser *)parser
 {
     if (++_rssno == _rssarray.count) {
-        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:FALSE];
-        [_blogarray sortUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+        //NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:FALSE];
+        //[_blogarray sortUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         [_indicator stopAnimating];
         _indicator.hidden = YES;
