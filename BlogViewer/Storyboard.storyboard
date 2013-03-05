@@ -191,6 +191,9 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="iH9-v9-gj9"/>
                             <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M3Z-v5-mX7">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="460" id="11g-US-3Zy"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="uU7-SA-cjO" id="Ma9-mX-gh1"/>
                                 </connections>
@@ -198,15 +201,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="M3Z-v5-mX7" firstAttribute="top" secondItem="PaI-1i-BC4" secondAttribute="top" constant="45" id="0p4-Ua-01O"/>
                             <constraint firstItem="uVb-th-A0E" firstAttribute="leading" secondItem="PaI-1i-BC4" secondAttribute="leading" type="default" id="7m4-xW-aZL"/>
                             <constraint firstItem="uVb-th-A0E" firstAttribute="trailing" secondItem="PaI-1i-BC4" secondAttribute="trailing" type="default" id="ARq-2i-DMx"/>
                             <constraint firstItem="iH9-v9-gj9" firstAttribute="centerY" secondItem="PaI-1i-BC4" secondAttribute="centerY" type="default" id="NgS-14-Igv"/>
                             <constraint firstItem="M3Z-v5-mX7" firstAttribute="trailing" secondItem="PaI-1i-BC4" secondAttribute="trailing" type="default" id="Oyf-gY-hMh"/>
-                            <constraint firstItem="M3Z-v5-mX7" firstAttribute="top" secondItem="PaI-1i-BC4" secondAttribute="top" type="default" id="RRH-hx-JYu"/>
                             <constraint firstItem="M3Z-v5-mX7" firstAttribute="leading" secondItem="PaI-1i-BC4" secondAttribute="leading" type="default" id="UZi-9a-BPS"/>
                             <constraint firstItem="iH9-v9-gj9" firstAttribute="centerX" secondItem="uVb-th-A0E" secondAttribute="centerX" type="default" id="kmi-UV-Bi1"/>
                             <constraint firstItem="uVb-th-A0E" firstAttribute="bottom" secondItem="PaI-1i-BC4" secondAttribute="bottom" type="default" id="rFf-Ap-qu1"/>
-                            <constraint firstItem="uVb-th-A0E" firstAttribute="top" secondItem="M3Z-v5-mX7" secondAttribute="bottom" type="default" id="tWh-6h-Gaj"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="GCp-Ho-K6t"/>
@@ -845,6 +847,9 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="zdC-EA-zBJ"/>
                             <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uNr-yM-GXt">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="460" id="bbL-zP-N2z"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="8UX-iR-4ST" id="gxK-T3-jcb"/>
                                 </connections>
@@ -858,8 +863,7 @@
                             <constraint firstItem="TEz-ew-Nsz" firstAttribute="bottom" secondItem="Jq2-lo-SUq" secondAttribute="bottom" type="default" id="R1K-8d-dhh"/>
                             <constraint firstItem="TEz-ew-Nsz" firstAttribute="trailing" secondItem="Jq2-lo-SUq" secondAttribute="trailing" type="default" id="VHZ-ax-eo6"/>
                             <constraint firstItem="zdC-EA-zBJ" firstAttribute="centerY" secondItem="Jq2-lo-SUq" secondAttribute="centerY" type="default" id="XMQ-A9-UEo"/>
-                            <constraint firstItem="TEz-ew-Nsz" firstAttribute="top" secondItem="uNr-yM-GXt" secondAttribute="bottom" type="default" id="aq6-sS-q57"/>
-                            <constraint firstItem="uNr-yM-GXt" firstAttribute="top" secondItem="Jq2-lo-SUq" secondAttribute="top" type="default" id="n04-rx-Kj5"/>
+                            <constraint firstItem="uNr-yM-GXt" firstAttribute="top" secondItem="Jq2-lo-SUq" secondAttribute="top" constant="45" id="iWH-mn-Jyp"/>
                             <constraint firstItem="zdC-EA-zBJ" firstAttribute="centerX" secondItem="TEz-ew-Nsz" secondAttribute="centerX" type="default" id="xff-IS-8LU"/>
                         </constraints>
                     </view>
@@ -925,6 +929,9 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="1iA-fg-zSr"/>
                             <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MUp-cD-8cZ">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="460" id="0Oo-n7-bxL"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="uUp-zH-Urv" id="WLJ-g5-PQE"/>
                                 </connections>
@@ -933,14 +940,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="MUp-cD-8cZ" firstAttribute="trailing" secondItem="Hiv-vF-rgV" secondAttribute="trailing" type="default" id="A1g-EJ-LcN"/>
-                            <constraint firstItem="OzR-AD-mU5" firstAttribute="top" secondItem="MUp-cD-8cZ" secondAttribute="bottom" type="default" id="AuK-6g-Jmv"/>
                             <constraint firstItem="MUp-cD-8cZ" firstAttribute="leading" secondItem="Hiv-vF-rgV" secondAttribute="leading" type="default" id="GVm-ai-aad"/>
                             <constraint firstItem="1iA-fg-zSr" firstAttribute="centerY" secondItem="Hiv-vF-rgV" secondAttribute="centerY" type="default" id="U4f-kp-2Cf"/>
                             <constraint firstItem="OzR-AD-mU5" firstAttribute="trailing" secondItem="Hiv-vF-rgV" secondAttribute="trailing" type="default" id="YQT-Tn-zML"/>
                             <constraint firstItem="OzR-AD-mU5" firstAttribute="bottom" secondItem="Hiv-vF-rgV" secondAttribute="bottom" type="default" id="Z4u-Da-Myu"/>
+                            <constraint firstItem="MUp-cD-8cZ" firstAttribute="top" secondItem="Hiv-vF-rgV" secondAttribute="top" constant="45" id="bwT-aZ-Dn5"/>
                             <constraint firstItem="1iA-fg-zSr" firstAttribute="centerX" secondItem="OzR-AD-mU5" secondAttribute="centerX" type="default" id="g93-Sf-ZCq"/>
                             <constraint firstItem="OzR-AD-mU5" firstAttribute="leading" secondItem="Hiv-vF-rgV" secondAttribute="leading" type="default" id="hpv-C7-RIy"/>
-                            <constraint firstItem="MUp-cD-8cZ" firstAttribute="top" secondItem="Hiv-vF-rgV" secondAttribute="top" type="default" id="u5G-B1-St1"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="4Zz-Rm-wqc"/>
@@ -1005,6 +1011,9 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="2cj-aC-Te5"/>
                             <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kfQ-5r-N9E">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="460" id="JBB-sp-5vB"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="CSu-St-mMQ" id="1fe-Z0-v2a"/>
                                 </connections>
@@ -1013,8 +1022,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="rer-Hz-qg4" firstAttribute="bottom" secondItem="cKR-mx-Vp1" secondAttribute="bottom" type="default" id="PcY-uL-i1J"/>
-                            <constraint firstItem="rer-Hz-qg4" firstAttribute="top" secondItem="kfQ-5r-N9E" secondAttribute="bottom" type="default" id="ZyX-Uc-OqW"/>
-                            <constraint firstItem="kfQ-5r-N9E" firstAttribute="top" secondItem="cKR-mx-Vp1" secondAttribute="top" type="default" id="a6b-e1-rhe"/>
+                            <constraint firstItem="kfQ-5r-N9E" firstAttribute="top" secondItem="cKR-mx-Vp1" secondAttribute="top" constant="45" id="aVG-WR-h8O"/>
                             <constraint firstItem="rer-Hz-qg4" firstAttribute="trailing" secondItem="cKR-mx-Vp1" secondAttribute="trailing" type="default" id="fzL-CM-xig"/>
                             <constraint firstItem="kfQ-5r-N9E" firstAttribute="leading" secondItem="cKR-mx-Vp1" secondAttribute="leading" type="default" id="mK9-H8-aPJ"/>
                             <constraint firstItem="2cj-aC-Te5" firstAttribute="centerX" secondItem="rer-Hz-qg4" secondAttribute="centerX" type="default" id="oFK-zH-aOJ"/>
@@ -1050,6 +1058,124 @@
         <image name="setting.png" width="30" height="30"/>
         <image name="star.png" width="30" height="30"/>
     </resources>
+    <classes>
+        <class className="AppinfoCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AppinfoCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="_appinfo" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ApptitleCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ApptitleCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="_appname" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="_copyright" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="_icon" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="_version" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="BlogCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BlogCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="_blogtitle" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="_thumbnail" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="_updated" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="BlogItemsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BlogItemsViewController.h"/>
+        </class>
+        <class className="BlogsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BlogsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="pressRefreshButton:"/>
+            </relationships>
+        </class>
+        <class className="FavoriteViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavoriteViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="_editbutton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="ImageCell" superclassName="UICollectionViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ImageCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="cellindicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="imageview" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="ImagesViewController" superclassName="UICollectionViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ImagesViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="pressRefreshButton:"/>
+            </relationships>
+        </class>
+        <class className="ItemCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ItemCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="_blogtitle" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="_itemtitle" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="_thumbnail" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="_updated" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ItemsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ItemsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="pressRefreshButton:"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="OtherViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OtherViewController.h"/>
+        </class>
+        <class className="ScrollCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ScrollCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="_blogLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="_dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="_itemLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ScrollViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ScrollViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="pressSaveButton:"/>
+                <relationship kind="outlet" name="_scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="_tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="UICollectionReusableView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
+        </class>
+        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
+        </class>
+        <class className="UICollectionViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewController.h"/>
+        </class>
+        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
+        </class>
+        <class className="WebViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WebViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="pressFavoriteButton:"/>
+                <relationship kind="action" name="showActionsheet:"/>
+                <relationship kind="outlet" name="_favoritebutton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="_gobackbutton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="_goforwardbutton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="_indicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="_refreshbutton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="_webview" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
