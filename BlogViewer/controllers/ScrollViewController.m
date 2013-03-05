@@ -74,7 +74,10 @@
         
         _scrollView.contentSize = CGSizeMake(rect.size.width * [_itemarray count], rect.size.height);
         _scrollView.pagingEnabled = YES;
-
+        
+        _actionsheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
+        [_actionsheet addButtonWithTitle:@"画像を保存する"];
+        _actionsheet.cancelButtonIndex = [_actionsheet addButtonWithTitle:@"キャンセル"];
     }
     _scrollView.contentOffset = CGPointMake(320.0 * _selected, 0);
     
@@ -107,10 +110,6 @@
 
 - (void)longTouchImageView:(UILongPressGestureRecognizer *)sender
 {
-    _actionsheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
-    [_actionsheet addButtonWithTitle:@"保存する"];
-    _actionsheet.cancelButtonIndex = [_actionsheet addButtonWithTitle:@"キャンセル"];
-    
     if ([sender state] == UIGestureRecognizerStateBegan) {
         [_actionsheet showInView:self.view];
     } else if ([sender state] == UIGestureRecognizerStateEnded) {
@@ -182,7 +181,7 @@
 
 - (IBAction)pressSaveButton:(id)sender
 {
-    [self savePhoto];
+    [_actionsheet showInView:self.view];
 }
 
 - (void)savePhoto
