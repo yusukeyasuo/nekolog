@@ -74,7 +74,7 @@
     if (indexPath.row == 0) {
         static NSString *CellIdentifier = @"ApptitleCell";
         ApptitleCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-        cell.icon.image = [UIImage imageNamed:@"nekoicon.png"];
+        cell.icon.image = [UIImage imageNamed:@"icon.png"];
         cell.icon.layer.cornerRadius = 8.0;
         cell.icon.clipsToBounds = YES;
         cell.appname.text = @"ねこログ";

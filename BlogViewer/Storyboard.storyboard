@@ -345,7 +345,7 @@
                                     <rect key="frame" x="10" y="1" width="300" height="79"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="nekoicon.png" translatesAutoresizingMaskIntoConstraints="NO" id="cMg-pb-Tiq">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="cMg-pb-Tiq">
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="60" id="l5Y-mH-J2e"/>
                                                 <constraint firstAttribute="height" constant="60" id="o7l-yp-46a"/>
@@ -994,10 +994,10 @@
         <image name="blog_list.png" width="24" height="22"/>
         <image name="favorite.png" width="30" height="30"/>
         <image name="home.png" width="24" height="22"/>
+        <image name="icon.png" width="57" height="57"/>
         <image name="icon_go_back.png" width="27" height="27"/>
         <image name="icon_go_foward.png" width="27" height="27"/>
         <image name="images.png" width="23" height="18"/>
-        <image name="nekoicon.png" width="16" height="16"/>
         <image name="setting.png" width="30" height="30"/>
         <image name="star.png" width="30" height="30"/>
     </resources>
