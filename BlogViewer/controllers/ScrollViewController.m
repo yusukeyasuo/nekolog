@@ -28,12 +28,17 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [[GAI sharedInstance].defaultTracker trackView:@"ScrollViewController"];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.navigationController.navigationBar.tintColor = [UIColor darkGrayColor];
     self.navigationController.navigationBar.translucent = YES;
-    [[GAI sharedInstance].defaultTracker trackView:@"OtherViewController"];
 
     _tableView.scrollEnabled = NO;
     _scrollView.directionalLockEnabled = YES;
@@ -111,6 +116,7 @@
 - (void)longTouchImageView:(UILongPressGestureRecognizer *)sender
 {
     if ([sender state] == UIGestureRecognizerStateBegan) {
+        [[GAI sharedInstance].defaultTracker trackView:@"SavePhoto|longtouch"];
         [_actionsheet showInView:self.view];
     } else if ([sender state] == UIGestureRecognizerStateEnded) {
     }
@@ -152,6 +158,7 @@
 }
 
 - (void)hiddenButton {
+    [[GAI sharedInstance].defaultTracker trackView:@"ScrollViewController"];
     if (_selected == 0) {
         [to_left setAlpha:0.02];
     } else {
@@ -181,11 +188,13 @@
 
 - (IBAction)pressSaveButton:(id)sender
 {
+    [[GAI sharedInstance].defaultTracker trackView:@"SavePhoto|savebutton"];
     [_actionsheet showInView:self.view];
 }
 
 - (void)savePhoto
 {
+    [[GAI sharedInstance].defaultTracker trackView:@"SavePhoto"];
     UIImageWriteToSavedPhotosAlbum(
                                    [[BlogInfo sharedManager] getImageCache:[_itemarray[_selected] objectForKey:@"imageurl"]], self,
                                    @selector(savingImageIsFinished:didFinishSavingWithError:contextInfo:), nil);

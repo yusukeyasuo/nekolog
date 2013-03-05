@@ -24,7 +24,8 @@
     // 通信にはHTTPSを使用する
     [[GAI sharedInstance].defaultTracker setUseHttps:YES];
     // トラッキングIDを設定
-     [[GAI sharedInstance] trackerWithTrackingId:@"UA-38979150-1"];
+     [[GAI sharedInstance] trackerWithTrackingId:@"UA-2509288-15"];
+     //[[GAI sharedInstance] trackerWithTrackingId:@"UA-38979150-1"];
     
     sleep(1);
     return YES;

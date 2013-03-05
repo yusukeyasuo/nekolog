@@ -26,14 +26,18 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    NSString *gaStr = [NSString stringWithFormat:@"WebViewController|%@", [_itemdict objectForKey:@"link"]];
+    [[GAI sharedInstance].defaultTracker trackView:gaStr];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.navigationController.navigationBar.tintColor = [UIColor darkGrayColor];
     self.navigationController.navigationBar.translucent = YES;
-    NSString *gaStr = [NSString stringWithFormat:@"WebViewController|%@", [_itemdict objectForKey:@"link"]];
-    NSLog(@"gaStr: %@", gaStr);
-    [[GAI sharedInstance].defaultTracker trackView:gaStr];
 
     AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     if (![appDelegate checkNetworkAccess])

@@ -34,12 +34,12 @@
     self.navigationController.navigationBar.tintColor = [UIColor darkGrayColor];
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.navigationController.navigationBar.translucent = YES;
-    [[GAI sharedInstance].defaultTracker trackView:@"FavoriteViewController"];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [[GAI sharedInstance].defaultTracker trackView:@"FavoriteViewController"];
     _favoritearray = [[BlogInfo sharedManager] getFavoritevarray];
     [self.tableView reloadData];
 }

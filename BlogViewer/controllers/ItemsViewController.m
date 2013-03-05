@@ -27,6 +27,12 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [[GAI sharedInstance].defaultTracker trackView:@"ItemViewController"];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -35,7 +41,6 @@
     }
     self.navigationController.navigationBar.tintColor = [UIColor darkGrayColor];
     self.navigationController.navigationBar.translucent = YES;
-    [[GAI sharedInstance].defaultTracker trackView:@"ItemViewController"];
     
     _indicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
     [_indicator setCenter:CGPointMake(160.0f, 240.0f)];

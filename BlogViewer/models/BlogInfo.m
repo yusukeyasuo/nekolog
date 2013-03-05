@@ -35,10 +35,9 @@ static BlogInfo *_sharedInstance = nil;
 
 - (void)getRssArraywithCompletion:(void(^)(NSArray *responceObject, NSError *error))completion
 {
-    NSString *urlStr = @"http://133.242.129.55/work/blog.php";
-    //NSString *urlStr = @"http://133.242.129.55/work/blog2.php";
-    //NSString *urlStr = @"http://blg615.goo.ne.jp/nekolog.php";
+    NSString *urlStr = @"http://blog.goo.ne.jp/sp_recommend_blog/cat";
     //NSString *urlStr = @"http://blg615.goo.ne.jp/sp_recommend_blog/cat";
+    //NSString *urlStr = @"http://133.242.129.55/work/blog.php";
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlStr]
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                        timeoutInterval:10.0f];
