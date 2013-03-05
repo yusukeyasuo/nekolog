@@ -149,13 +149,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"didselect");
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     FavoriteWebViewController *webController = [[FavoriteWebViewController alloc] initWithNibName:@"FavoriteWebViewController" bundle:nil];
     webController.hidesBottomBarWhenPushed = YES;
     webController.itemdict = _favoritearray[indexPath.row];
     [self.navigationController pushViewController:webController animated:YES];
-
 }
 
 @end
