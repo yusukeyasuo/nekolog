@@ -242,16 +242,21 @@
     NSDictionary *dict = _itemarray[indexPath.row];
     
     cell.tag = indexPath.row;
+    cell.cellindicator.hidden = YES;
     
     NSString *imageurl = [dict objectForKey:@"imageurl"];
     if (!imageurl.length) {
         [cell.imageview setImage:[UIImage imageNamed:@"noimage.gif"]];
     } else {
+        cell.cellindicator.hidden = NO;
+        [cell.cellindicator startAnimating];
         __block ImageCell *bCell = cell;
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[dict objectForKey:@"imageurl"]]cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10.0f];
         [cell.imageview setImageWithURLRequest:request
                            placeholderImage:nil
                                     success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *_image) {
+                                        [bCell.cellindicator stopAnimating];
+                                        bCell.cellindicator.hidden = YES;
                                         [[BlogInfo sharedManager] setImageCache:_image imageurl:[dict objectForKey:@"imageurl"]];
                                         [bCell.imageview setImage:_image];
                                     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {

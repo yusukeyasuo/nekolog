@@ -11,5 +11,7 @@
 @interface ImageCell : UICollectionViewCell
 
 @property (nonatomic, strong) IBOutlet UIImageView *imageview;
+@property (nonatomic, strong) IBOutlet UIActivityIndicatorView *cellindicator;
+
 
 @end
