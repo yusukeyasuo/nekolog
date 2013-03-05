@@ -96,13 +96,13 @@
                                 </view>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Jvg-70-vxK" secondAttribute="trailing" constant="20" type="default" id="22a-YM-XJY"/>
-                                    <constraint firstItem="Jvg-70-vxK" firstAttribute="leading" secondItem="pmE-H5-CQW" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="6pu-cx-yIx"/>
-                                    <constraint firstItem="Jvg-70-vxK" firstAttribute="top" secondItem="pmE-H5-CQW" secondAttribute="top" type="default" id="T9V-T0-ved"/>
+                                    <constraint firstAttribute="bottom" secondItem="pmE-H5-CQW" secondAttribute="bottom" constant="7" id="56e-a8-zAa"/>
+                                    <constraint firstItem="pmE-H5-CQW" firstAttribute="leading" secondItem="laj-Xo-cb3" secondAttribute="leading" constant="72" id="6hE-eb-5Rs"/>
+                                    <constraint firstItem="oD1-Zy-l84" firstAttribute="leading" secondItem="laj-Xo-cb3" secondAttribute="leading" constant="5" id="D5y-3w-49v"/>
+                                    <constraint firstItem="Jvg-70-vxK" firstAttribute="baseline" secondItem="pmE-H5-CQW" secondAttribute="baseline" type="default" id="P3k-GL-3JG"/>
+                                    <constraint firstItem="pmE-H5-CQW" firstAttribute="leading" secondItem="R4F-Et-zb9" secondAttribute="leading" type="default" id="PNU-Fq-yRw"/>
                                     <constraint firstItem="R4F-Et-zb9" firstAttribute="top" secondItem="laj-Xo-cb3" secondAttribute="top" constant="8" id="UJr-OQ-Efz"/>
-                                    <constraint firstItem="R4F-Et-zb9" firstAttribute="leading" secondItem="laj-Xo-cb3" secondAttribute="leading" constant="72" id="Wpm-eL-nPH"/>
-                                    <constraint firstItem="Jvg-70-vxK" firstAttribute="baseline" secondItem="pmE-H5-CQW" secondAttribute="baseline" type="default" id="Xjb-H9-hFT"/>
-                                    <constraint firstAttribute="bottom" secondItem="pmE-H5-CQW" secondAttribute="bottom" constant="8" id="YkD-V6-aod"/>
-                                    <constraint firstItem="pmE-H5-CQW" firstAttribute="leading" secondItem="oD1-Zy-l84" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="jau-QE-1J3"/>
+                                    <constraint firstItem="Jvg-70-vxK" firstAttribute="top" secondItem="pmE-H5-CQW" secondAttribute="top" type="default" id="hQB-Tt-crD"/>
                                     <constraint firstItem="oD1-Zy-l84" firstAttribute="centerY" secondItem="laj-Xo-cb3" secondAttribute="centerY" type="default" id="s4I-1N-vyb"/>
                                 </constraints>
                                 <connections>
@@ -272,8 +272,8 @@
                                     <constraint firstItem="jq9-tA-wyD" firstAttribute="centerY" secondItem="9iV-MD-nKs" secondAttribute="centerY" type="default" id="IXc-Dl-2FB"/>
                                     <constraint firstAttribute="trailing" secondItem="WSw-G3-zfN" secondAttribute="trailing" constant="20" type="default" id="OfG-hX-JRC"/>
                                     <constraint firstItem="jq9-tA-wyD" firstAttribute="leading" secondItem="9iV-MD-nKs" secondAttribute="leading" constant="5" id="P80-ur-g9t"/>
+                                    <constraint firstAttribute="bottom" secondItem="WSw-G3-zfN" secondAttribute="bottom" constant="7" id="TxC-NO-iZh"/>
                                     <constraint firstItem="8nc-nA-1ST" firstAttribute="leading" secondItem="9iV-MD-nKs" secondAttribute="leading" constant="72" id="uYj-qG-WDY"/>
-                                    <constraint firstAttribute="bottom" secondItem="WSw-G3-zfN" secondAttribute="bottom" constant="8" id="ya3-TY-S6e"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="_blogtitle" destination="8nc-nA-1ST" id="kSJ-0b-oSK"/>
@@ -686,15 +686,15 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="ywr-Jp-lvT" firstAttribute="leading" secondItem="T1e-8v-LeG" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="4i7-gl-Q0G"/>
-                                    <constraint firstItem="ywr-Jp-lvT" firstAttribute="baseline" secondItem="T1e-8v-LeG" secondAttribute="baseline" type="default" id="Btb-P1-cHW"/>
-                                    <constraint firstAttribute="bottom" secondItem="T1e-8v-LeG" secondAttribute="bottom" constant="8" id="FB3-ZO-8KX"/>
                                     <constraint firstItem="V0e-ks-VL3" firstAttribute="centerY" secondItem="SNk-2h-BSi" secondAttribute="centerY" type="default" id="FdX-56-Hkb"/>
-                                    <constraint firstItem="ywr-Jp-lvT" firstAttribute="top" secondItem="T1e-8v-LeG" secondAttribute="top" type="default" id="Kq8-eu-JeY"/>
-                                    <constraint firstItem="T1e-8v-LeG" firstAttribute="leading" secondItem="V0e-ks-VL3" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="NGy-a7-ayY"/>
-                                    <constraint firstItem="xxW-MM-Kqw" firstAttribute="leading" secondItem="SNk-2h-BSi" secondAttribute="leading" constant="72" id="Nz3-x7-hqj"/>
+                                    <constraint firstItem="ywr-Jp-lvT" firstAttribute="baseline" secondItem="T1e-8v-LeG" secondAttribute="baseline" type="default" id="It3-k8-Be4"/>
+                                    <constraint firstItem="ywr-Jp-lvT" firstAttribute="top" secondItem="T1e-8v-LeG" secondAttribute="top" type="default" id="Odm-Qr-7y4"/>
+                                    <constraint firstAttribute="bottom" secondItem="T1e-8v-LeG" secondAttribute="bottom" constant="7" id="S6M-fK-ExN"/>
+                                    <constraint firstItem="V0e-ks-VL3" firstAttribute="leading" secondItem="SNk-2h-BSi" secondAttribute="leading" constant="5" id="VNg-iG-WTo"/>
                                     <constraint firstItem="xxW-MM-Kqw" firstAttribute="top" secondItem="SNk-2h-BSi" secondAttribute="top" constant="8" id="XkQ-Yf-Lo9"/>
+                                    <constraint firstItem="T1e-8v-LeG" firstAttribute="leading" secondItem="SNk-2h-BSi" secondAttribute="leading" constant="72" id="f4F-lh-2bz"/>
                                     <constraint firstAttribute="trailing" secondItem="ywr-Jp-lvT" secondAttribute="trailing" constant="20" type="default" id="hWy-TT-axR"/>
+                                    <constraint firstItem="T1e-8v-LeG" firstAttribute="leading" secondItem="xxW-MM-Kqw" secondAttribute="leading" type="default" id="vLY-Qu-p4s"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="_blogtitle" destination="T1e-8v-LeG" id="ldM-So-rEB"/>
@@ -766,14 +766,14 @@
                                 </view>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="YE0-4e-xu6" secondAttribute="trailing" constant="20" type="default" id="77f-Eo-o0e"/>
-                                    <constraint firstAttribute="bottom" secondItem="wfA-Ss-B1y" secondAttribute="bottom" constant="8" id="DIv-oO-dxo"/>
-                                    <constraint firstItem="YE0-4e-xu6" firstAttribute="top" secondItem="wfA-Ss-B1y" secondAttribute="top" type="default" id="Uvo-NJ-Evx"/>
+                                    <constraint firstItem="YE0-4e-xu6" firstAttribute="top" secondItem="wfA-Ss-B1y" secondAttribute="top" type="default" id="Gdr-8c-iry"/>
+                                    <constraint firstAttribute="bottom" secondItem="wfA-Ss-B1y" secondAttribute="bottom" constant="7" id="Mvm-JL-mbm"/>
+                                    <constraint firstItem="wfA-Ss-B1y" firstAttribute="leading" secondItem="dYk-19-sYD" secondAttribute="leading" type="default" id="N2w-ab-F4i"/>
                                     <constraint firstItem="XcF-La-bhr" firstAttribute="centerY" secondItem="Z1r-2X-0YM" secondAttribute="centerY" type="default" id="Y80-YV-FyW"/>
-                                    <constraint firstItem="wfA-Ss-B1y" firstAttribute="leading" secondItem="XcF-La-bhr" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="ZfM-nF-Swq"/>
-                                    <constraint firstItem="YE0-4e-xu6" firstAttribute="baseline" secondItem="wfA-Ss-B1y" secondAttribute="baseline" type="default" id="eJa-fe-Mr4"/>
+                                    <constraint firstItem="XcF-La-bhr" firstAttribute="leading" secondItem="Z1r-2X-0YM" secondAttribute="leading" constant="5" id="a4j-EM-avX"/>
+                                    <constraint firstItem="wfA-Ss-B1y" firstAttribute="leading" secondItem="Z1r-2X-0YM" secondAttribute="leading" constant="72" id="ay6-io-14c"/>
                                     <constraint firstItem="dYk-19-sYD" firstAttribute="top" secondItem="Z1r-2X-0YM" secondAttribute="top" constant="8" id="fif-uz-1dM"/>
-                                    <constraint firstItem="YE0-4e-xu6" firstAttribute="leading" secondItem="wfA-Ss-B1y" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="jyT-OF-LMY"/>
-                                    <constraint firstItem="dYk-19-sYD" firstAttribute="leading" secondItem="Z1r-2X-0YM" secondAttribute="leading" constant="72" id="nkr-s7-NAv"/>
+                                    <constraint firstItem="YE0-4e-xu6" firstAttribute="baseline" secondItem="wfA-Ss-B1y" secondAttribute="baseline" type="default" id="msz-h0-c13"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="_blogtitle" destination="wfA-Ss-B1y" id="WtO-Ql-v42"/>
@@ -1143,6 +1143,9 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
         <class className="WebViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/WebViewController.h"/>
