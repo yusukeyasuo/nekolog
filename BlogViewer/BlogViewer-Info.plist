@@ -14,15 +14,13 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
-				<string>nekolog.png</string>
-				<string>nekoicon.png</string>
 				<string>icon.png</string>
 				<string>icon@2x.png</string>
 			</array>
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
-	<string>jp.ne.blog.goo.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>jp.ne.goo.blog.nekolog</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
