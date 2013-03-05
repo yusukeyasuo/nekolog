@@ -35,6 +35,9 @@
 		706D495416DE4BE900546BF1 /* favorite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 706D495216DE4BE900546BF1 /* favorite@2x.png */; };
 		706D495516DE4BE900546BF1 /* favorite.png in Resources */ = {isa = PBXBuildFile; fileRef = 706D495316DE4BE900546BF1 /* favorite.png */; };
 		706D495D16DE4C8700546BF1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 706D495C16DE4C8700546BF1 /* InfoPlist.strings */; };
+		7078EE8516E5C3D500083811 /* FavoriteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7078EE8416E5C3D500083811 /* FavoriteCell.m */; };
+		7078EE9216E5D8B800083811 /* FavoriteWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7078EE9016E5D8B700083811 /* FavoriteWebViewController.m */; };
+		7078EE9316E5D8B800083811 /* FavoriteWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7078EE9116E5D8B700083811 /* FavoriteWebViewController.xib */; };
 		7089919016CD3A06004899CF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7089918F16CD3A06004899CF /* UIKit.framework */; };
 		7089919216CD3A06004899CF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7089919116CD3A06004899CF /* Foundation.framework */; };
 		7089919416CD3A06004899CF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7089919316CD3A06004899CF /* CoreGraphics.framework */; };
@@ -117,6 +120,11 @@
 		706D495716DE4C3600546BF1 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = images/Default.png; sourceTree = "<group>"; };
 		706D495816DE4C3600546BF1 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "images/Default@2x.png"; sourceTree = "<group>"; };
 		706D495C16DE4C8700546BF1 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		7078EE8316E5C3D500083811 /* FavoriteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FavoriteCell.h; path = views/FavoriteCell.h; sourceTree = "<group>"; };
+		7078EE8416E5C3D500083811 /* FavoriteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FavoriteCell.m; path = views/FavoriteCell.m; sourceTree = "<group>"; };
+		7078EE8F16E5D8B700083811 /* FavoriteWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FavoriteWebViewController.h; path = controllers/FavoriteWebViewController.h; sourceTree = "<group>"; };
+		7078EE9016E5D8B700083811 /* FavoriteWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FavoriteWebViewController.m; path = controllers/FavoriteWebViewController.m; sourceTree = "<group>"; };
+		7078EE9116E5D8B700083811 /* FavoriteWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FavoriteWebViewController.xib; path = controllers/FavoriteWebViewController.xib; sourceTree = "<group>"; };
 		7089918C16CD3A06004899CF /* BlogViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlogViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7089918F16CD3A06004899CF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7089919116CD3A06004899CF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -298,6 +306,8 @@
 				709FB34916D2058F0010DCF5 /* BlogCell.m */,
 				709FB34A16D2058F0010DCF5 /* ItemCell.h */,
 				709FB34B16D2058F0010DCF5 /* ItemCell.m */,
+				7078EE8316E5C3D500083811 /* FavoriteCell.h */,
+				7078EE8416E5C3D500083811 /* FavoriteCell.m */,
 				7065636716E082710086FB4D /* ApptitleCell.h */,
 				7065636816E082710086FB4D /* ApptitleCell.m */,
 				7065636A16E082830086FB4D /* AppinfoCell.h */,
@@ -327,6 +337,9 @@
 				706D493D16DE4B9100546BF1 /* ScrollViewController.m */,
 				706D494216DE4B9100546BF1 /* WebViewController.h */,
 				706D494116DE4B9100546BF1 /* WebViewController.m */,
+				7078EE8F16E5D8B700083811 /* FavoriteWebViewController.h */,
+				7078EE9016E5D8B700083811 /* FavoriteWebViewController.m */,
+				7078EE9116E5D8B700083811 /* FavoriteWebViewController.xib */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -486,6 +499,7 @@
 				7065637E16E0AED80086FB4D /* Default.png in Resources */,
 				7065638316E0AFBA0086FB4D /* Default-568h@2x.png in Resources */,
 				7065638416E0AFBA0086FB4D /* Default@2x.png in Resources */,
+				7078EE9316E5D8B800083811 /* FavoriteWebViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,6 +538,8 @@
 				7065636916E082720086FB4D /* ApptitleCell.m in Sources */,
 				7065636C16E082830086FB4D /* AppinfoCell.m in Sources */,
 				7065636F16E08DB80086FB4D /* TextCell.m in Sources */,
+				7078EE8516E5C3D500083811 /* FavoriteCell.m in Sources */,
+				7078EE9216E5D8B800083811 /* FavoriteWebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,8 +9,10 @@
 #import "FavoriteViewController.h"
 #import "BlogInfo.h"
 #import "ItemCell.h"
+#import "FavoriteCell.h"
 #import "AFNetworking.h"
 #import "WebViewController.h"
+#import "FavoriteWebViewController.h"
 
 @interface FavoriteViewController ()
 
@@ -47,6 +49,7 @@
     [super didReceiveMemoryWarning];
 }
 
+/*
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     ItemCell *cell = sender;
@@ -54,6 +57,7 @@
     webController.hidesBottomBarWhenPushed = YES;
     webController.itemdict = _favoritearray[cell.tag];
 }
+*/
 
 #pragma mark - Table view data source
 
@@ -74,11 +78,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ItemCell *cell = (ItemCell *)[tableView dequeueReusableCellWithIdentifier:@"ItemCell"];
+    FavoriteCell *cell = (FavoriteCell *)[tableView dequeueReusableCellWithIdentifier:@"Favorite"];
     
     if (!cell) {
-        cell = [[ItemCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ItemCell"];
+        cell = [[FavoriteCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FavoriteCell"];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.selectionStyle = UITableViewCellSelectionStyleGray;
     }
     
     NSDictionary *dict = [_favoritearray objectAtIndex:indexPath.row];
@@ -102,7 +107,7 @@
         [layer setBorderWidth: 1.f];
         [layer setBorderColor:[[UIColor lightGrayColor] CGColor]];
     } else {
-        __block ItemCell *bCell = cell;
+        __block FavoriteCell *bCell = cell;
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[dict objectForKey:@"imageurl"]] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10.0f];
         [cell.thumbnail setImageWithURLRequest:request
                           placeholderImage:nil
@@ -144,7 +149,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"didselect");
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    FavoriteWebViewController *webController = [[FavoriteWebViewController alloc] initWithNibName:@"FavoriteWebViewController" bundle:nil];
+    webController.hidesBottomBarWhenPushed = YES;
+    webController.itemdict = _favoritearray[indexPath.row];
+    [self.navigationController pushViewController:webController animated:YES];
+
 }
 
 @end
