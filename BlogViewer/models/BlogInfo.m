@@ -100,7 +100,7 @@ static BlogInfo *_sharedInstance = nil;
         }
     }
     [_favoritearray insertObject:favoritedict atIndex:0];
-    //[self save];
+    [self save];
 }
 
 - (NSArray *)getFavoritevarray
