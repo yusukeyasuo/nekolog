@@ -77,9 +77,6 @@
         cell.icon.image = [UIImage imageNamed:@"icon.png"];
         cell.icon.layer.cornerRadius = 8.0;
         cell.icon.clipsToBounds = YES;
-        cell.appname.text = @"ねこログ";
-        cell.version.text = @"version 1.0.0";
-        cell.copyright.text = @"(c) NTT Resonant Inc.";
         return cell;
     } else if (indexPath.row == 1) {
         static NSString *CellIdentifier = @"AppinfoCell";

@@ -38,6 +38,7 @@
 		7078EE8516E5C3D500083811 /* FavoriteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7078EE8416E5C3D500083811 /* FavoriteCell.m */; };
 		7078EE9216E5D8B800083811 /* FavoriteWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7078EE9016E5D8B700083811 /* FavoriteWebViewController.m */; };
 		7078EE9316E5D8B800083811 /* FavoriteWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7078EE9116E5D8B700083811 /* FavoriteWebViewController.xib */; };
+		7078EEC316E9B17E00083811 /* Storyboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7078EEC216E9B17E00083811 /* Storyboard_iPad.storyboard */; };
 		7089919016CD3A06004899CF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7089918F16CD3A06004899CF /* UIKit.framework */; };
 		7089919216CD3A06004899CF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7089919116CD3A06004899CF /* Foundation.framework */; };
 		7089919416CD3A06004899CF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7089919316CD3A06004899CF /* CoreGraphics.framework */; };
@@ -125,6 +126,7 @@
 		7078EE8F16E5D8B700083811 /* FavoriteWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FavoriteWebViewController.h; path = controllers/FavoriteWebViewController.h; sourceTree = "<group>"; };
 		7078EE9016E5D8B700083811 /* FavoriteWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FavoriteWebViewController.m; path = controllers/FavoriteWebViewController.m; sourceTree = "<group>"; };
 		7078EE9116E5D8B700083811 /* FavoriteWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FavoriteWebViewController.xib; path = controllers/FavoriteWebViewController.xib; sourceTree = "<group>"; };
+		7078EEC216E9B17E00083811 /* Storyboard_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard_iPad.storyboard; sourceTree = "<group>"; };
 		7089918C16CD3A06004899CF /* BlogViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlogViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7089918F16CD3A06004899CF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7089919116CD3A06004899CF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -268,6 +270,7 @@
 				7089919E16CD3A06004899CF /* AppDelegate.h */,
 				7089919F16CD3A06004899CF /* AppDelegate.m */,
 				708991AC16CD3A18004899CF /* Storyboard.storyboard */,
+				7078EEC216E9B17E00083811 /* Storyboard_iPad.storyboard */,
 				709FB32D16D1FAA50010DCF5 /* models */,
 				708991B416CDB6E9004899CF /* views */,
 				708991B516CDB707004899CF /* controllers */,
@@ -331,10 +334,10 @@
 				709FB33C16D205610010DCF5 /* FavoriteViewController.m */,
 				709FB33D16D205610010DCF5 /* ImagesViewController.h */,
 				709FB33E16D205610010DCF5 /* ImagesViewController.m */,
-				709FB34116D205620010DCF5 /* OtherViewController.h */,
-				709FB34216D205620010DCF5 /* OtherViewController.m */,
 				706D494016DE4B9100546BF1 /* ScrollViewController.h */,
 				706D493D16DE4B9100546BF1 /* ScrollViewController.m */,
+				709FB34116D205620010DCF5 /* OtherViewController.h */,
+				709FB34216D205620010DCF5 /* OtherViewController.m */,
 				706D494216DE4B9100546BF1 /* WebViewController.h */,
 				706D494116DE4B9100546BF1 /* WebViewController.m */,
 				7078EE8F16E5D8B700083811 /* FavoriteWebViewController.h */,
@@ -500,6 +503,7 @@
 				7065638316E0AFBA0086FB4D /* Default-568h@2x.png in Resources */,
 				7065638416E0AFBA0086FB4D /* Default@2x.png in Resources */,
 				7078EE9316E5D8B800083811 /* FavoriteWebViewController.xib in Resources */,
+				7078EEC316E9B17E00083811 /* Storyboard_iPad.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -614,7 +618,7 @@
 					"\"$(SRCROOT)/BlogViewer/GAI\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -631,7 +635,7 @@
 					"\"$(SRCROOT)/BlogViewer/GAI\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

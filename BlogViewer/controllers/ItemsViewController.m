@@ -43,7 +43,8 @@
     self.navigationController.navigationBar.translucent = YES;
     
     _indicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-    [_indicator setCenter:CGPointMake(160.0f, 240.0f)];
+    CGRect rect = [[UIScreen mainScreen] bounds];
+    [_indicator setCenter:CGPointMake(rect.size.width / 2, rect.size.height / 2)];
     [_indicator setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];
     [self.view addSubview:_indicator];
     [self.view bringSubviewToFront:_indicator];

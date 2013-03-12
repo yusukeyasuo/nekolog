@@ -43,7 +43,10 @@
     _tableView.scrollEnabled = NO;
     _scrollView.directionalLockEnabled = YES;
     _itemarray = [[BlogInfo sharedManager] getItemarray];
-    CGRect rect = CGRectMake(0, 0, 320.0f, 320.0f);
+    _screenrect = [[UIScreen mainScreen] bounds];
+    NSLog(@"width: %f", _screenrect.size.width);
+    NSLog(@"height: %f", _screenrect.size.height);
+    CGRect rect = CGRectMake(0, 0, _screenrect.size.width, _screenrect.size.width < 330 ? 320 : 600);
     
     for (NSInteger i = 0; i < _itemarray.count; i ++)
     {
@@ -84,10 +87,10 @@
         [_actionsheet addButtonWithTitle:@"画像を保存する"];
         _actionsheet.cancelButtonIndex = [_actionsheet addButtonWithTitle:@"キャンセル"];
     }
-    _scrollView.contentOffset = CGPointMake(320.0 * _selected, 0);
+    _scrollView.contentOffset = CGPointMake(_screenrect.size.width * _selected, 0);
     
-    to_left = [[UIButton alloc] initWithFrame:CGRectMake(5.0f, 140.0f, 40.0f, 40.0f)];
-    to_right = [[UIButton alloc] initWithFrame:CGRectMake(275.0f, 140.0f, 40.0f, 40.0f)];
+    to_left = [[UIButton alloc] initWithFrame:CGRectMake(5.0f, _screenrect.size.width < 330 ? 140.0f : 280.0f, 40.0f, 40.0f)];
+    to_right = [[UIButton alloc] initWithFrame:CGRectMake(_screenrect.size.width - 45.0f, _screenrect.size.width < 330 ? 140.0f : 280.0f, 40.0f, 40.0f)];
     [to_left setBackgroundImage:[UIImage imageNamed:@"to_left.png"] forState:UIControlStateNormal];
     [to_left addTarget:self
                 action:@selector(to_left:) forControlEvents:UIControlEventTouchUpInside];
@@ -140,7 +143,7 @@
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.3];
     [UIView setAnimationDelay:0.0];
-    _scrollView.contentOffset = CGPointMake(_scrollView.contentOffset.x - 320, 0);
+    _scrollView.contentOffset = CGPointMake(_scrollView.contentOffset.x - _screenrect.size.width, 0);
     [UIView commitAnimations];
     _selected = _scrollView.contentOffset.x / _scrollView.frame.size.width;
     [self hiddenButton];
@@ -151,7 +154,7 @@
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.3];
     [UIView setAnimationDelay:0.0];
-    _scrollView.contentOffset = CGPointMake(_scrollView.contentOffset.x + 320, 0);
+    _scrollView.contentOffset = CGPointMake(_scrollView.contentOffset.x + _screenrect.size.width, 0);
     [UIView commitAnimations];
     _selected = _scrollView.contentOffset.x / _scrollView.frame.size.width;
     [self hiddenButton];

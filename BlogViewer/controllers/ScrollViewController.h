@@ -23,6 +23,7 @@
     NSString *_item;
     NSString *_blog;
     NSString *_date;
+    CGRect _screenrect;
 }
 
 @property (nonatomic) NSInteger selected;
