@@ -89,8 +89,8 @@
     }
     _scrollView.contentOffset = CGPointMake(_screenrect.size.width * _selected, 0);
     
-    to_left = [[UIButton alloc] initWithFrame:CGRectMake(5.0f, _screenrect.size.width < 330 ? 140.0f : 280.0f, 40.0f, 40.0f)];
-    to_right = [[UIButton alloc] initWithFrame:CGRectMake(_screenrect.size.width - 45.0f, _screenrect.size.width < 330 ? 140.0f : 280.0f, 40.0f, 40.0f)];
+    to_left = [[UIButton alloc] initWithFrame:CGRectMake(5.0f, _screenrect.size.width < 330 ? 185.0f : 280.0f, 40.0f, 40.0f)];
+    to_right = [[UIButton alloc] initWithFrame:CGRectMake(_screenrect.size.width - 45.0f, _screenrect.size.width < 330 ? 185.0f : 280.0f, 40.0f, 40.0f)];
     [to_left setBackgroundImage:[UIImage imageNamed:@"to_left.png"] forState:UIControlStateNormal];
     [to_left addTarget:self
                 action:@selector(to_left:) forControlEvents:UIControlEventTouchUpInside];
@@ -246,7 +246,7 @@
 
 - (float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 155.0f;
+    return 110.0f;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

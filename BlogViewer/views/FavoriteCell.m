@@ -24,6 +24,8 @@
     
     // thmbnail
     _thumbnail = [[UIImageView alloc] init];
+    _thumbnail.contentMode = UIViewContentModeScaleAspectFill;
+    _thumbnail.clipsToBounds = YES;
     [self.contentView addSubview:_thumbnail];
     
     // itemtitle
