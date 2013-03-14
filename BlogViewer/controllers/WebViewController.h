@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <Social/Social.h>
+#import <MessageUI/MessageUI.h>
+#import <MessageUI/MFMailComposeViewController.h>
 
-@interface WebViewController : UIViewController <UIWebViewDelegate, UIActionSheetDelegate>
+@interface WebViewController : UIViewController <UIWebViewDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
 {
     NSDictionary *_itemdict;
     NSString *_blogurl;

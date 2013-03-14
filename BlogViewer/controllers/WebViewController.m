@@ -68,7 +68,7 @@
     }
     
     // シェア方法を選択
-    _shareitems = @[@"Twitterに投稿", @"Facebookに投稿", @"Safariで開く"];
+    _shareitems = @[@"Twitterに投稿", @"Facebookに投稿", @"Safariで開く", @"通報する"];
     
     _indicator.hidden = NO;
     [_indicator startAnimating];
@@ -107,6 +107,18 @@
     [[BlogInfo sharedManager] addFavoritearray:_itemdict];
 }
 
+- (void)showMailView
+{
+    MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
+    picker.mailComposeDelegate = self;
+    [picker setToRecipients:[NSArray arrayWithObject:@"blogoo@nttr.co.jp"]];
+    [picker setSubject:@"記事の通報 - ねこログ"];
+    NSString *emailBody = [NSString stringWithFormat:@"以下の記事を通報します。\n\n【記事タイトル】\n%@\n【記事URL】\n%@\n【通報理由】\n ", _itemdict[@"title"], _itemdict[@"link"]];
+    [picker setMessageBody:emailBody isHTML:NO];
+    
+    [self presentViewController:picker animated:YES completion:nil];
+}
+
 #pragma mark - ActionSheet delegate
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -124,7 +136,47 @@
     } else if (buttonIndex == 2) {
         NSURL *safari = [NSURL URLWithString:_blogurl];
         [[UIApplication sharedApplication] openURL:safari];
+    } else if (buttonIndex == 3) {
+        Class mail = (NSClassFromString(@"MFMailComposeViewController"));
+        if (mail != nil){
+            if ([mail canSendMail]){
+                [self showMailView];
+            } else {
+                [[[UIAlertView alloc] initWithTitle:nil
+                                            message:@"メールの起動ができませんでした。\nメールの設定をしてからご利用ください。"
+                                           delegate:nil
+                                  cancelButtonTitle:@"OK"
+                                  otherButtonTitles:nil] show];
+            }
+        }
+
     }
+}
+
+#pragma mark - MFMailComposeViewControllerDelegate
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error {
+    switch (result){
+        case MFMailComposeResultCancelled:
+            break;
+        case MFMailComposeResultSaved:
+            // save
+            break;
+        case MFMailComposeResultSent:
+            // sent
+            break;
+        case MFMailComposeResultFailed:
+            // failure
+            [[[UIAlertView alloc] initWithTitle:nil
+                                        message:@"インターネット接続がオフラインのようです。"
+                                       delegate:nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil] show];
+            break;
+        default:
+            break;
+    }
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - WebView delegate
