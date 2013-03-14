@@ -44,8 +44,6 @@
     _scrollView.directionalLockEnabled = YES;
     _itemarray = [[BlogInfo sharedManager] getItemarray];
     _screenrect = [[UIScreen mainScreen] bounds];
-    NSLog(@"width: %f", _screenrect.size.width);
-    NSLog(@"height: %f", _screenrect.size.height);
     CGRect rect = CGRectMake(0, 0, _screenrect.size.width, _screenrect.size.width < 330 ? 320 : 600);
     
     for (NSInteger i = 0; i < _itemarray.count; i ++)
@@ -254,7 +252,11 @@
     static NSString *CellIdentifier = @"Cell";
     ScrollCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
+    _item = [_item stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    _item = [_item stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
     cell.itemLabel.text = _item;
+    _blog = [_blog stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    _blog = [_blog stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
     cell.blogLabel.text = _blog;
     cell.dateLabel.text = _date;
     
