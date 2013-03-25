@@ -62,6 +62,7 @@
         {
             _favoritebutton.image = [UIImage imageNamed:@"favorite.png"];
             _favoritestatus = YES;
+            break;
         } else {
             _favoritestatus = NO;
         }
