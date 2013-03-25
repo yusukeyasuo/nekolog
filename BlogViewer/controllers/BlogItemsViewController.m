@@ -87,6 +87,7 @@
     }
     
     _blogarray = [[BlogInfo sharedManager] getBlogarray];
+    _itemarray = [[NSMutableArray alloc] init];
     [self.tableView reloadData];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
      _indicator.hidden = NO;
