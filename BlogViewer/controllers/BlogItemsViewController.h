@@ -25,6 +25,8 @@
     NSMutableString *_currentlink;
     NSMutableString *_currentdescription;
     NSString *_imageurl;
+    
+    BOOL _refreshFlg;
 }
 
 @property (nonatomic) NSInteger blogno;

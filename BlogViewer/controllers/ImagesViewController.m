@@ -58,6 +58,8 @@
     _refreshControl = [[UIRefreshControl alloc] init];
     [_refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
     [self.collectionView addSubview:_refreshControl];
+    
+    _refreshFlg = NO;
 }
 
 - (void)getRss:(int)rssnumber
@@ -94,6 +96,12 @@
                           otherButtonTitles:nil] show];
         [_refreshControl endRefreshing];
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        return;
+    }
+    
+    if (!_refreshFlg) {
+        _refreshFlg = YES;
+    } else {
         return;
     }
     
@@ -221,6 +229,7 @@
         _indicator.hidden = YES;
         [[BlogInfo sharedManager] setItemarray:_itemarray];
         [_refreshControl endRefreshing];
+        _refreshFlg = NO;
         [self.collectionView reloadData];
     }
     [self getRss:_rssno];

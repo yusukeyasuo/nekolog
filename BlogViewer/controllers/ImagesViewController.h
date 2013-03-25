@@ -25,9 +25,11 @@
     NSMutableString *_currentlink;
     NSMutableString *_currentdescription;
     NSString *_imageurl;
+    
     BOOL _initem;
     BOOL _inimage;
     int _rssno;
+    BOOL _refreshFlg;
 }
 - (IBAction)pressRefreshButton:(id)sender;
 

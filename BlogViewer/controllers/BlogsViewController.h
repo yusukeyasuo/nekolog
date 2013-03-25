@@ -27,6 +27,7 @@
     int _rssno;
     BOOL _initem;
     BOOL _inimage;
+    BOOL _refreshFlg;
 }
 - (IBAction)pressRefreshButton:(id)sender;
 
