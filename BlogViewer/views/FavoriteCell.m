@@ -63,21 +63,41 @@
     CGRect  bounds;
     bounds = self.contentView.bounds;
     
-    // thmbnail
-    rect = CGRectMake(5.0f, 10.0f, 60.0f, 60.0f);
-    _thumbnail.frame = rect;
+    NSLog(@"width: %f", bounds.size.width);
     
-    // itemtitle
-    rect = CGRectMake(72.0f, 8.0f, 227.0f, 42.0f);
-    _itemtitle.frame = rect;
-    
-    // blogtitle
-    rect = CGRectMake(72.0f, 52.0f, 147.0f, 21.0f);
-    _blogtitle.frame = rect;
-    
-    // updated
-    rect = CGRectMake(228.0f, 52.0f, 72.0f, 21.0f);
-    _updated.frame = rect;
+    if (bounds.size.width < 320) {
+        // thmbnail
+        rect = CGRectMake(5.0f, 10.0f, 60.0f, 60.0f);
+        _thumbnail.frame = rect;
+        
+        // itemtitle
+        rect = CGRectMake(72.0f, 8.0f, 227.0f, 42.0f);
+        _itemtitle.frame = rect;
+        
+        // blogtitle
+        rect = CGRectMake(72.0f, 52.0f, 147.0f, 21.0f);
+        _blogtitle.frame = rect;
+        
+        // updated
+        rect = CGRectMake(228.0f, 52.0f, 72.0f, 21.0f);
+        _updated.frame = rect;
+    } else {
+        // thmbnail
+        rect = CGRectMake(5.0f, 10.0f, 60.0f, 60.0f);
+        _thumbnail.frame = rect;
+        
+        // itemtitle
+        rect = CGRectMake(72.0f, 8.0f, 676.0f, 42.0f);
+        _itemtitle.frame = rect;
+        
+        // blogtitle
+        rect = CGRectMake(72.0f, 52.0f, 570.0f, 21.0f);
+        _blogtitle.frame = rect;
+        
+        // updated
+        rect = CGRectMake(676.0f, 52.0f, 72.0f, 21.0f);
+        _updated.frame = rect;
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

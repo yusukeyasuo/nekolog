@@ -88,6 +88,8 @@
             cell.icon.image = [UIImage imageNamed:@"icon.png"];
             cell.icon.layer.cornerRadius = 8.0;
             cell.icon.clipsToBounds = YES;
+            NSString *versionStr = [NSString stringWithFormat:@"version %@", [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleVersionKey]];
+            cell.version.text = versionStr;
             return cell;
         } else if (indexPath.row == 1) {
             static NSString *CellIdentifier = @"AppinfoCell";
